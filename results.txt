@@ -1,0 +1,19 @@
+-------------------------------------------------------
+BASIC CASE : B = 1, C = 1
+-------------------------------------------------------
+python dalc_learn.py -f svmlight -b 1 -c 1 -n 3 -m models\model-basic.bin source.svmlight target.svmlight
+python dalc_classify.py -f svmlight -m models\model-basic.bin -p predictions\pred-basic.bin target.svmlight
+python dalc_reverse_cv.py -f svmlight -b 1 -c 1 source.svmlight target.svmlight
+... Summary ...
+Fold #    source    target    valid     risk
+-------------------------------------------------------
+1         80        80        20        0.75
+2         80        80        20        0.75
+3         80        80        20        0.75
+4         80        80        20        0.7
+5         80        80        20        0.45
+
+Validation risk = 0.68
+-------------------------------------------------------
+BASIC CASE : B = 1, C = 1
+-------------------------------------------------------
