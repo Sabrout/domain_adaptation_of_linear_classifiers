@@ -28,17 +28,17 @@ def rotate_dataset(dataset, angle):
 
 
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
-    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=None, noise=None, random_state=None)
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=None, noise=0.05, random_state=None)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
 
-    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=None, noise=None, random_state=None)
-    # rotate_dataset(target_dataset, 30)
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=None, noise=0.05, random_state=2)
+    rotate_dataset(target_dataset, 35)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
 
-    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=None, noise=None, random_state=None)
-    # rotate_dataset(test_dataset, 30)
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=None, noise=0.05, random_state=1)
+    rotate_dataset(test_dataset, 35)
     datasets.dump_svmlight_file(test_dataset[0], test_dataset[1], 'data\\test.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
     return source_dataset, target_dataset, test_dataset
@@ -48,34 +48,37 @@ def plot_datasets(datasets):
     plt.figure(figsize=(12, 8))
     plt.subplots_adjust(bottom=.05, top=.9, left=.05, right=.95)
 
-    plt.subplot(221)
+    plt.subplot(221, aspect='equal')
     plt.title("Source Dataset", fontsize='small')
     X1, Y1 = datasets[0]
+    plt.axis([-1.5, 2.25, -0.75, 1.75])
     plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
                 s=25, edgecolor='k')
 
-    plt.subplot(222)
+    plt.subplot(222, aspect='equal')
     plt.title("Target Dataset", fontsize='small')
     X1, Y1 = datasets[1]
+    plt.axis([-1.5, 2.25, -0.75, 1.75])
     plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
                 s=25, edgecolor='k')
 
-    plt.subplot(223)
+    plt.subplot(223, aspect='equal')
     plt.title("Test Dataset",
               fontsize='small')
     X2, Y2 = datasets[2]
+    plt.axis([-1.5, 2.25, -0.75, 1.75])
     plt.scatter(X2[:, 0], X2[:, 1], marker='o', c=Y2,
                 s=25, edgecolor='k')
 
+    plt.savefig('results/datasets_display.png')
     plt.show()
-    plt.savefig('datasets.png')
 
 
-def dalc_tune(b_min, b_max, c_min, c_max, b_step=1, c_step=1):
+def dalc_tune(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
     # B-VALUE & C-VALUE TUNING
     b_range = np.arange(b_min, b_max, b_step)
     c_range = np.arange(c_min, c_max, c_step)
-    g_range = np.arange(1, 5)
+    g_range = np.arange(0.1, 1.5, 0.5)
     for i in b_range:
         for j in c_range:
             for k in g_range:
@@ -103,20 +106,21 @@ def clear_folder(path):
 
 
 def clean_tmp():
-    clear_folder("/models/*")
-    clear_folder("/predictions/*")
-    clear_folder("/results/*")
-    clear_folder("/data/*")
+    clear_folder("models/*")
+    clear_folder("predictions/*")
+    clear_folder("results/*")
+    clear_folder("data/*")
 
 
 def main():
     clean_tmp()
-    datasets = generate_moon_dataset()
-    plot_datasets(datasets)
-    # dalc_tune(1, 3, 1, 3)
+    # datasets = generate_moon_dataset()
+    # plot_datasets(datasets)
+    # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.5, 0.5)
     print("---------------------------------------------------")
     print("                    FINISHED")
     print("---------------------------------------------------")
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()
