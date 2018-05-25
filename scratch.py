@@ -1,6 +1,6 @@
 from sklearn import datasets
 from math import sin, cos, radians
-import os
+import dataset
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -22,22 +22,44 @@ def rotate_point(point, angle, center_point=(0, 0)):
     return new_point
 
 
+def shift_point(point):
+    new_point = (point[0] - 0.5, point[1] - 0.5)
+    return new_point
+
+
+def shift_dataset(dataset):
+    for i in range(0, len(dataset[0])):
+        dataset[0][i] = shift_point((dataset[0][i][0], dataset[0][i][1]))
+
+
 def rotate_dataset(dataset, angle):
     for i in range(0, len(dataset[0])):
         dataset[0][i] = rotate_point((dataset[0][i][0], dataset[0][i][1]), angle)
 
 
+def adapt_labels(dataset):
+    for i in range(0, len(dataset[1])):
+        if dataset[1][i] == 0:
+            dataset[1][i] = -1
+
+
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
-    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=None, noise=0.05, random_state=None)
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.05, random_state=None)
+    adapt_labels(source_dataset)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
+    # shift_dataset(source_dataset)
 
-    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=None, noise=0.05, random_state=2)
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.05, random_state=2)
+    adapt_labels(target_dataset)
+    # shift_dataset(target_dataset)
     rotate_dataset(target_dataset, 35)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
 
-    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=None, noise=0.05, random_state=1)
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.05, random_state=1)
+    adapt_labels(test_dataset)
+    # shift_dataset(test_dataset)
     rotate_dataset(test_dataset, 35)
     datasets.dump_svmlight_file(test_dataset[0], test_dataset[1], 'data\\test.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
@@ -74,6 +96,27 @@ def plot_datasets(datasets):
     plt.show()
 
 
+def plot_amazon(datasets):
+    plt.subplots_adjust(bottom=.05, top=.9, left=.05, right=.95)
+
+    plt.subplot(121, aspect='equal')
+    plt.title("Source Dataset", fontsize='small')
+    X1 = datasets[0].X
+    Y1 = datasets[0].Y
+    plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
+                s=25, edgecolor='k')
+
+    plt.subplot(122, aspect='equal')
+    plt.title("Target Dataset", fontsize='small')
+    X1 = datasets[1].X
+    Y1 = datasets[1].Y
+    plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
+                s=25, edgecolor='k')
+
+    plt.savefig('results/amazon_display.png')
+    plt.show()
+
+
 def dalc_tune(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
     # B-VALUE & C-VALUE TUNING
     b_range = np.arange(b_min, b_max, b_step)
@@ -82,11 +125,17 @@ def dalc_tune(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
     for i in b_range:
         for j in c_range:
             for k in g_range:
-                text_file = open("results\\results.txt", "a")
-                text_file.write("---------------------------------------------------\n")
-                text_file.write("MOONS DATABASE\n")
-                text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(i, j, k))
-                text_file.write("---------------------------------------------------\n")
+                # Writing Template
+                template = ""
+                template += "---------------------------------------------------\n"
+                template += "MOONS DATABASE\n"
+                template += "CASE : B = {}, C = {}, Gamma = {}\n".format(i, j, k)
+                template += "---------------------------------------------------\n"
+                text_file = open("results\\Classification.txt", "a")
+                text_file.write(template)
+                text_file.close()
+                text_file = open("results\\Validation.txt", "a")
+                text_file.write(template)
                 text_file.close()
                 # Training the model
                 os.system("python dalc_learn.py -f svmlight -b {} -c {} -k rbf -g {} -m models\model-b{}c{}g{}.bin "
@@ -95,8 +144,44 @@ def dalc_tune(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
                 command = ""
                 command += "python dalc_classify.py -f svmlight -m models\model-b{}c{}g{}.bin " \
                            "-p predictions\pred-b{}c{}g{}.bin data\\test.svmlight >> ".format(i, j, k, i, j, k)
-                command += "results\\results.txt"
+                command += "results\\Classification.txt"
                 os.system(command)
+                # Validating the model
+                command = ""
+                command += "python dalc_reverse_cv.py -b {} -c {} -k rbf -g {} -f svmlight " \
+                           "data\source.svmlight data\\target.svmlight >> results\Validation.txt".format(i, j, k)
+                os.system(command)
+
+
+def dalc_amazon(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
+    # B-VALUE & C-VALUE TUNING
+    b_range = np.arange(b_min, b_max, b_step)
+    c_range = np.arange(c_min, c_max, c_step)
+    g_range = np.arange(0.1, 1.5, 0.5)
+    for i in b_range:
+        for j in c_range:
+            for k in g_range:
+                text_file = open("results\\amazon.txt", "a")
+                text_file.write("---------------------------------------------------\n")
+                text_file.write("MOONS DATABASE\n")
+                text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(i, j, k))
+                text_file.write("---------------------------------------------------\n")
+                text_file.close()
+                # Training the model
+                os.system("python dalc_learn.py -f svmlight -b {} -c {} -k rbf -g {} -m models\\amazon-b{}c{}g{}.bin "
+                          "amazon\source.svmlight amazon\\target.svmlight".format(i, j, k, i, j, k))
+                # Testing the model
+                command = ""
+                command += "python dalc_classify.py -f svmlight -m models\\amazon-b{}c{}g{}.bin " \
+                           "-p predictions\\amazon-b{}c{}g{}.bin amazon\\test.svmlight >> ".format(i, j, k, i, j, k)
+                command += "results\\amazon.txt"
+                os.system(command)
+
+
+def read_amazon():
+    source = dataset.dataset_from_svmlight_file('amazon\source.svmlight')
+    target = dataset.dataset_from_svmlight_file('amazon\\target.svmlight')
+    return source, target
 
 
 def clear_folder(path):
@@ -114,9 +199,13 @@ def clean_tmp():
 
 def main():
     clean_tmp()
-    # datasets = generate_moon_dataset()
-    # plot_datasets(datasets)
-    # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.5, 0.5)
+    datasets = generate_moon_dataset()
+    plot_datasets(datasets)
+    dalc_tune(0.1, 1.5, 0.1, 1.5, 0.5, 0.5)
+
+    # amazon = read_amazon()
+    # plot_amazon(amazon)
+    # dalc_amazon(1, 5, 0.1, 1.5, 2, 0.5)
     print("---------------------------------------------------")
     print("                    FINISHED")
     print("---------------------------------------------------")

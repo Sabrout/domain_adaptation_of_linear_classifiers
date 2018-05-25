@@ -1,0 +1,3861 @@
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.1, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 932.1129384437714
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 12
+funcalls: 18
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 279.5814823696493
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 22
+funcalls: 25
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 985.0674688787248
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 10
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 280.5283281611945
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 28
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 976.488112749575
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 8
+funcalls: 13
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 280.01317563353683
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 22
+funcalls: 25
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 1003.3674205324453
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 10
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 279.87864842895783
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 24
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 1003.4257453538348
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 7
+funcalls: 13
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 279.6851169298049
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 24
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.1, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 902.8966197523889
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 31
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 782.2824231027824
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 23
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 876.7775124603688
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 802.4828259134714
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 23
+
+Fold risk = 0.25
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 891.2450965637317
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 35
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 833.1640876471897
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 44
+
+Fold risk = 0.275
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 919.3598758318966
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 23
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 847.2469283124269
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 33
+
+Fold risk = 0.15
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 919.8744562364217
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 860.982827123522
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 15
+funcalls: 19
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.25      
+3         160       160       40        0.275     
+4         160       160       40        0.15      
+5         160       160       40        0.15      
+
+Validation risk = 0.30999999999999994
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.1, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 831.8172109993326
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 31
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 740.3865261241731
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 39
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 803.022001794794
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 30
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 718.8312918372546
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 33
+
+Fold risk = 0.25
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 815.8650681403494
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 744.8547109649044
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 34
+funcalls: 38
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 849.7413053105656
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 23
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 759.392011413038
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 27
+
+Fold risk = 0.15
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 848.1288212640857
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 771.9077237153095
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 35
+funcalls: 41
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.25      
+3         160       160       40        0.3       
+4         160       160       40        0.15      
+5         160       160       40        0.15      
+
+Validation risk = 0.23499999999999996
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.6, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 190.98588334922368
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 73.89998432957418
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 32
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 201.1689285627911
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 74.18918650113126
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 26
+funcalls: 34
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 199.37011084841765
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 9
+funcalls: 15
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 74.02985018956309
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 27
+funcalls: 34
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 204.28856069319102
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 73.99311155310482
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 27
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 204.23459574110288
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 25
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 73.93369931007658
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 26
+funcalls: 33
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.6, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 205.1769613690067
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 12
+funcalls: 16
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 88.59750359483834
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 15
+funcalls: 21
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 216.42027225547565
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 14
+funcalls: 18
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 89.95166276573232
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 18
+funcalls: 22
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 214.00714986227777
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 16
+funcalls: 20
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 89.16158011723007
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 13
+funcalls: 19
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 420.79951055213735
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 39
+funcalls: 50
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 162.6459501345759
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 18
+funcalls: 23
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 423.29004549735293
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 38
+funcalls: 46
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 165.66699249096257
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 14
+funcalls: 17
+
+Fold risk = 0.475
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.475     
+
+Validation risk = 0.58
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.6, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 217.2543572546195
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 34
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 101.05202047241224
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 36
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 330.78688293140647
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 44
+funcalls: 49
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 187.4899814650673
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 29
+funcalls: 33
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 362.0648193755636
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 53
+funcalls: 60
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 179.90083734052448
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 29
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 359.5552943674146
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 43
+funcalls: 50
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 181.53422240156942
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 31
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 360.07660572264547
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 50
+funcalls: 59
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 179.52111212278834
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 31
+
+Fold risk = 0.475
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.475     
+
+Validation risk = 0.58
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 1.1, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 109.70356681894339
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 22
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 45.5260179808714
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 26
+funcalls: 34
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 115.31125476593454
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 45.70913185467918
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 26
+funcalls: 35
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 114.30835985182091
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 16
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 45.607791969051426
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 25
+funcalls: 33
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 117.00093216761337
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 18
+funcalls: 27
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 45.58551221694465
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 24
+funcalls: 31
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 116.96494174712703
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 45.54782872061034
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 31
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 1.1, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 119.19620892274486
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 16
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 55.16930167922243
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 30
+funcalls: 40
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 125.45504194074618
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 22
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 56.00197310271332
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 16
+funcalls: 22
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 124.06185969648939
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 22
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 55.50641178153182
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 31
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 126.7576282248584
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 30
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 55.482925122656965
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 13
+funcalls: 22
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 126.58437422414777
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 39
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 55.30653327871998
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 13
+funcalls: 23
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 1.1, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 127.21685487480423
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 29
+funcalls: 34
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 63.29827351317673
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 34
+funcalls: 41
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 244.39920653779245
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 49
+funcalls: 55
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 110.10909851839159
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 35
+funcalls: 42
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 272.8786306048743
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 62
+funcalls: 70
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 101.35139414917876
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 30
+funcalls: 37
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 267.4156722267445
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 52
+funcalls: 57
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 103.17287435630834
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 32
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 281.4739754174316
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 46
+funcalls: 59
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 97.52954217790554
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 32
+funcalls: 37
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.1, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 381.75607280704435
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 27
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 339.4710648304425
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 29
+funcalls: 33
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 367.33481511236863
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 7
+funcalls: 11
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 332.1012183080277
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 34
+funcalls: 42
+
+Fold risk = 0.225
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 373.06684566504356
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 26
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 338.71541077010374
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 30
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 386.98088492881294
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 15
+funcalls: 19
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 346.8202384557504
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 41
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 386.2740975608202
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 6
+funcalls: 10
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 349.74611298760465
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.225     
+3         160       160       40        0.3       
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.22000000000000003
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.1, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 288.87655464464285
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 41
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 213.97409388804226
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 43
+
+Fold risk = 0.2
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 272.492286709606
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 204.53121456894212
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+Fold risk = 0.2
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 276.0275437990493
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 27
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 208.67776977997787
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 24
+
+Fold risk = 0.25
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 299.07124384439106
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 218.97642023852114
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 29
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 294.80713414243587
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 18
+funcalls: 22
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 221.10396517799
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 29
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.2       
+2         160       160       40        0.2       
+3         160       160       40        0.25      
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.18
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.1, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 272.7794863346328
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 34
+funcalls: 38
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 183.25808758122793
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 46
+funcalls: 52
+
+Fold risk = 0.2
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 257.1640155478665
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 20
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 175.25299412986118
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 39
+funcalls: 51
+
+Fold risk = 0.2
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 259.1040655944549
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 35
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 177.88506873193342
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 50
+funcalls: 57
+
+Fold risk = 0.25
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 284.9932156288418
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 39
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 188.48157271783552
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 43
+funcalls: 49
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 279.1777308007906
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 29
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 190.02599840556297
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 42
+funcalls: 51
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.2       
+2         160       160       40        0.2       
+3         160       160       40        0.25      
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.18
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.6, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 128.89746366625116
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 11
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 12.322154191314013
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 31
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 138.69781006887754
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 12
+funcalls: 15
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 12.370405890871606
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 28
+funcalls: 35
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 137.07289655238804
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 11
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 12.34381702973122
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 25
+funcalls: 31
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 141.99152208844228
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 7
+funcalls: 13
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 12.337696650857955
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 28
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 141.99352180135912
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 7
+funcalls: 13
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 12.327783542198805
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 26
+funcalls: 34
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.6, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 94.672479578522
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 40
+funcalls: 47
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 75.17684756814927
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 50
+funcalls: 67
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 89.38777838442397
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 32
+funcalls: 37
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 70.03498285644335
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 45
+funcalls: 55
+
+Fold risk = 0.25
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 91.55007639981922
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 41
+funcalls: 48
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 75.19096063615544
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 44
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 98.8168008195142
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 38
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 77.41659107164566
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 41
+funcalls: 47
+
+Fold risk = 0.15
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 98.25637044629684
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 26
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 80.54173039064993
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 26
+funcalls: 29
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.25      
+3         160       160       40        0.3       
+4         160       160       40        0.15      
+5         160       160       40        0.15      
+
+Validation risk = 0.23499999999999996
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.6, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 85.08506690937575
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 32
+funcalls: 39
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 63.159422920423964
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 34
+funcalls: 41
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 80.71647777422979
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 46
+funcalls: 52
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 57.9505559933507
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 47
+funcalls: 57
+
+Fold risk = 0.25
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 82.11059939535086
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 50
+funcalls: 54
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 62.962581981930796
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 44
+funcalls: 53
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 90.04935714459289
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 38
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 65.16917918198557
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 50
+funcalls: 58
+
+Fold risk = 0.15
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 89.24252527138292
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 42
+funcalls: 49
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 68.31118254166131
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 40
+funcalls: 49
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.25      
+3         160       160       40        0.3       
+4         160       160       40        0.15      
+5         160       160       40        0.15      
+
+Validation risk = 0.23499999999999996
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 1.1, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 71.70529253208919
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 22
+funcalls: 27
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 7.588587935270592
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 29
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 77.14845356896903
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 8
+funcalls: 15
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 7.619115193502235
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 17
+funcalls: 26
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 76.23339410082941
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 12
+funcalls: 18
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 7.602219649479351
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 26
+funcalls: 33
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 78.9414368144127
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 13
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 7.598507321124811
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 29
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 78.93752197176704
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 9
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 7.592224931647192
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 18
+funcalls: 26
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 1.1, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 73.08063545711495
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 9.19713902163142
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 18
+funcalls: 26
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 64.52133753860566
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 37
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 62.329225586174424
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 15
+funcalls: 18
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 84.90084749218217
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 26
+funcalls: 33
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 9.253263466385347
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 13
+funcalls: 18
+
+Fold risk = 0.4
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 72.0104633520362
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 40
+funcalls: 45
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 61.35561876929313
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 27
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 72.89030006096773
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 43
+funcalls: 50
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 59.520185335083355
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 16
+funcalls: 20
+
+Fold risk = 0.475
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.4       
+4         160       160       40        0.525     
+5         160       160       40        0.475     
+
+Validation risk = 0.5399999999999999
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 1.1, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 60.79819955760068
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 36
+funcalls: 43
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 59.795661805504075
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 39
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 56.76797956747211
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 34
+funcalls: 39
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 63.56623413568368
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 40
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 59.32659142494841
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 53
+funcalls: 58
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 47.60878884129583
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 49
+funcalls: 58
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 63.77569198332574
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 37
+funcalls: 42
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 62.57933233751852
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 35
+funcalls: 39
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 65.18376406489112
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 49
+funcalls: 52
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 51.46776191258519
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 45
+funcalls: 55
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.3       
+4         160       160       40        0.525     
+5         160       160       40        0.15      
+
+Validation risk = 0.45499999999999996
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.1, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 296.81624478258766
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 250.40822584005576
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 39
+funcalls: 45
+
+Fold risk = 0.25
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 281.87237111003054
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 23
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 239.9610499600928
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 24
+
+Fold risk = 0.2
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 286.93521736964465
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 28
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 245.99459562821863
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 33
+
+Fold risk = 0.275
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 302.6216371644128
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 6
+funcalls: 10
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 254.06074917714466
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 22
+funcalls: 27
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 301.06090726675325
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 6
+funcalls: 10
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 256.64692320577427
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 28
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.25      
+2         160       160       40        0.2       
+3         160       160       40        0.275     
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.195
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.1, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 230.56809168858723
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 38
+funcalls: 45
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 149.39016356548612
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 42
+funcalls: 47
+
+Fold risk = 0.2
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 215.66045844706483
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 22
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 142.037242653463
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 31
+
+Fold risk = 0.2
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 217.95298571453543
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 27
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 144.59587656519943
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 24
+
+Fold risk = 0.25
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 241.10563988440754
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 25
+funcalls: 30
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 154.1077023436775
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 28
+funcalls: 33
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 236.0577773460969
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 155.56119396804775
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 42
+funcalls: 47
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.2       
+2         160       160       40        0.2       
+3         160       160       40        0.25      
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.18
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.1, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 221.07608870266574
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 35
+funcalls: 41
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 126.21122493959089
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 37
+
+Fold risk = 0.2
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 206.75157255441553
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 17
+funcalls: 21
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 119.61380422305572
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 43
+funcalls: 49
+
+Fold risk = 0.2
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 207.73463123615664
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 30
+funcalls: 34
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 121.06391174643304
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 51
+funcalls: 61
+
+Fold risk = 0.225
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 233.1500026606499
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 24
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 130.54957928983137
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 55
+funcalls: 66
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 226.83109932779956
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 21
+funcalls: 25
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 131.55070939640945
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 42
+funcalls: 49
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.2       
+2         160       160       40        0.2       
+3         160       160       40        0.225     
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.175
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.6, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 89.02755639076864
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 35
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 77.50014377549847
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 30
+funcalls: 39
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 84.62565842888552
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 30
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 74.27331437612331
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 35
+funcalls: 46
+
+Fold risk = 0.25
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 86.40025583022334
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 26
+funcalls: 32
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 76.87132696649698
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 32
+
+Fold risk = 0.275
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 90.60558371983205
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 29
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 79.23338935607029
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 37
+funcalls: 45
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 90.44516324376947
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 10
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 80.12919588435165
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 10
+funcalls: 14
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.25      
+3         160       160       40        0.275     
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.21999999999999997
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.6, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 63.82246157477941
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 47
+funcalls: 55
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 45.71946271012506
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 40
+funcalls: 49
+
+Fold risk = 0.275
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 60.14239132012462
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 29
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 43.07532690614177
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 23
+funcalls: 28
+
+Fold risk = 0.225
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 60.940010489540036
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 26
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 44.56186472156247
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 41
+funcalls: 46
+
+Fold risk = 0.275
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 67.10242772146508
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 31
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 47.41402026738042
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 15
+funcalls: 19
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 66.03572593411168
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 15
+funcalls: 22
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 48.10335963851613
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 19
+funcalls: 22
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.275     
+2         160       160       40        0.225     
+3         160       160       40        0.275     
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.205
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.6, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 59.010175101093836
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 37
+funcalls: 42
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 37.91827435022941
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 47
+funcalls: 57
+
+Fold risk = 0.3
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 55.94717927743919
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 35
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 35.993873818060635
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 45
+funcalls: 52
+
+Fold risk = 0.225
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 56.15858064059769
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 35
+funcalls: 40
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 37.07222045379628
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 46
+funcalls: 52
+
+Fold risk = 0.275
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 62.97946514674709
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 24
+funcalls: 30
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 39.64811226182533
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 41
+funcalls: 50
+
+Fold risk = 0.1
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 61.53829998804882
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 26
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 40.54480439628648
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 44
+funcalls: 51
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.3       
+2         160       160       40        0.225     
+3         160       160       40        0.275     
+4         160       160       40        0.1       
+5         160       160       40        0.15      
+
+Validation risk = 0.21000000000000002
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 1.1, Gamma = 0.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 68.14455944364452
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 10
+funcalls: 16
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 4.139729419295314
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 35
+
+Fold risk = 0.725
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 73.53868073744611
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 9
+funcalls: 16
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 4.156385151772754
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 25
+funcalls: 33
+
+Fold risk = 0.575
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 72.6424298295134
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 12
+funcalls: 15
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 4.147166377194934
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 27
+funcalls: 35
+
+Fold risk = 0.6
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 75.34584106521544
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 10
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 4.145141994229322
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 23
+funcalls: 32
+
+Fold risk = 0.525
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 75.34650874473445
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 10
+funcalls: 14
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 4.14171425462559
+warnflag: 0
+task: CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+nit: 20
+funcalls: 28
+
+Fold risk = 0.525
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.725     
+2         160       160       40        0.575     
+3         160       160       40        0.6       
+4         160       160       40        0.525     
+5         160       160       40        0.525     
+
+Validation risk = 0.59
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 1.1, Gamma = 0.6
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 44.814785105215165
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 48
+funcalls: 57
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 33.07606530556546
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 51
+funcalls: 69
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 42.276717885717765
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 42
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 29.767348459553915
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 47
+funcalls: 63
+
+Fold risk = 0.275
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 43.21285159870785
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 44
+funcalls: 48
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 33.08105737204139
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 46
+funcalls: 56
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 47.45924698843519
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 36
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 34.21140150840496
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 39
+funcalls: 52
+
+Fold risk = 0.15
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 47.079648694317434
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 22
+funcalls: 25
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 36.031834085880305
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 20
+funcalls: 23
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.275     
+3         160       160       40        0.3       
+4         160       160       40        0.15      
+5         160       160       40        0.15      
+
+Validation risk = 0.24
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 1.1, Gamma = 1.1
+---------------------------------------------------
+----------------------------------------------------------------------------------------------------
+DOMAIN ADAPTATION OF LINEAR CLASSIFIERS (aka DALC) : REVERSE CROSS-VALIDATION HELPER
+Version 0.90 (November 2, 2015), Released under the BSD-license
+----------------------------------------------------------------------------------------------------
+Author: 
+    Pascal Germain. Groupe de Recherche en Apprentissage Automatique de l'Universite Laval (GRAAL).
+
+Reference: 
+    Pascal Germain, Amaury Habrard, Francois Laviolette, and Emilie Morvant. 
+    A New PAC-Bayesian Perspective on Domain Adaptation.
+    International Conference on Machine Learning (ICML) 2016.
+    http://arxiv.org/abs/1506.04573
+----------------------------------------------------------------------------------------------------
+
+... Loading dataset files ...
+200 source examples loaded.
+200 target examples loaded.
+
+... Building kernel matrix ...
+
+... Preparing folds  ...
+Fold #    source    target    valid     
+----------------------------------------
+1         160       160       40        
+2         160       160       40        
+3         160       160       40        
+4         160       160       40        
+5         160       160       40        
+
+... Performing validation round # 1...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 40.452768437656566
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 45
+funcalls: 54
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 27.09354988735575
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 38
+funcalls: 48
+
+Fold risk = 0.325
+
+... Performing validation round # 2...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 38.41218667895249
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 27
+funcalls: 32
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 24.38852790050936
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 33
+funcalls: 42
+
+Fold risk = 0.275
+
+... Performing validation round # 3...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 38.86166948260428
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 42
+funcalls: 48
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 27.22777725437891
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 61
+funcalls: 68
+
+Fold risk = 0.3
+
+... Performing validation round # 4...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 43.44919316776683
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 31
+funcalls: 39
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 27.800202477407048
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 40
+funcalls: 48
+
+Fold risk = 0.15
+
+... Performing validation round # 5...
+
+*** Source --> Target ***
+Performing optimization #1.
+cost value: 42.94536781521977
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 51
+funcalls: 56
+
+*** Target --> Source ***
+Performing optimization #1.
+cost value: 29.929115888798844
+warnflag: 0
+task: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+nit: 50
+funcalls: 56
+
+Fold risk = 0.15
+
+... Summary ...
+Fold #    source    target    valid     risk      
+-------------------------------------------------------
+1         160       160       40        0.325     
+2         160       160       40        0.275     
+3         160       160       40        0.3       
+4         160       160       40        0.15      
+5         160       160       40        0.15      
+
+Validation risk = 0.24

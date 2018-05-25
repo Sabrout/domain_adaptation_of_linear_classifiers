@@ -1,0 +1,351 @@
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.1, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c0.1g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c0.1g0.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.1, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c0.1g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c0.1g0.6.bin" created.
+Test risk = 0.582
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.1, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c0.1g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c0.1g1.1.bin" created.
+Test risk = 0.405
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.6, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c0.6g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c0.6g0.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.6, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c0.6g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c0.6g0.6.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 0.6, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c0.6g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c0.6g1.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 1.1, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c1.1g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c1.1g0.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 1.1, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c1.1g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c1.1g0.6.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.1, C = 1.1, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.1c1.1g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.1c1.1g1.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.1, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c0.1g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c0.1g0.1.bin" created.
+Test risk = 0.42
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.1, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c0.1g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c0.1g0.6.bin" created.
+Test risk = 0.399
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.1, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c0.1g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c0.1g1.1.bin" created.
+Test risk = 0.398
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.6, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c0.6g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c0.6g0.1.bin" created.
+Test risk = 0.565
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.6, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c0.6g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c0.6g0.6.bin" created.
+Test risk = 0.376
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 0.6, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c0.6g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c0.6g1.1.bin" created.
+Test risk = 0.375
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 1.1, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c1.1g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c1.1g0.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 1.1, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c1.1g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c1.1g0.6.bin" created.
+Test risk = 0.558
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 0.6, C = 1.1, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b0.6c1.1g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b0.6c1.1g1.1.bin" created.
+Test risk = 0.373
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.1, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c0.1g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c0.1g0.1.bin" created.
+Test risk = 0.405
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.1, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c0.1g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c0.1g0.6.bin" created.
+Test risk = 0.4
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.1, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c0.1g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c0.1g1.1.bin" created.
+Test risk = 0.398
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.6, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c0.6g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c0.6g0.1.bin" created.
+Test risk = 0.435
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.6, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c0.6g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c0.6g0.6.bin" created.
+Test risk = 0.381
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 0.6, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c0.6g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c0.6g1.1.bin" created.
+Test risk = 0.379
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 1.1, Gamma = 0.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c1.1g0.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c1.1g0.1.bin" created.
+Test risk = 0.5
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 1.1, Gamma = 0.6
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c1.1g0.6.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c1.1g0.6.bin" created.
+Test risk = 0.375
+---------------------------------------------------
+MOONS DATABASE
+CASE : B = 1.1, C = 1.1, Gamma = 1.1
+---------------------------------------------------
+... Loading model file ...
+File "models\model-b1.1c1.1g1.1.bin" loaded.
+
+... Loading dataset file ...
+1000 test examples loaded.
+
+... Prediction ...
+File "predictions\pred-b1.1c1.1g1.1.bin" created.
+Test risk = 0.375
