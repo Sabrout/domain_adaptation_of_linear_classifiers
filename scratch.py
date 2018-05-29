@@ -71,23 +71,23 @@ def log_scale(start, end, step=0.1):
 
 
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
-    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.05, random_state=None)
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=False, random_state=None)
     adapt_labels(source_dataset)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
     # shift_dataset(source_dataset)
 
-    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.05, random_state=2)
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=False, random_state=2)
     adapt_labels(target_dataset)
     # shift_dataset(target_dataset)
-    rotate_dataset(target_dataset, 35)
+    rotate_dataset(target_dataset, 30)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
 
-    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.05, random_state=1)
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=False, random_state=1)
     adapt_labels(test_dataset)
     # shift_dataset(test_dataset)
-    rotate_dataset(test_dataset, 35)
+    rotate_dataset(test_dataset, 30)
     datasets.dump_svmlight_file(test_dataset[0], test_dataset[1], 'data\\test.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
     return source_dataset, target_dataset, test_dataset
@@ -148,7 +148,7 @@ def dalc_tune(b_min, b_max, c_min, c_max, b_step=0.1, c_step=0.1):
     # B-VALUE & C-VALUE TUNING
     b_range = log_scale(b_min, b_max, b_step)
     c_range = log_scale(c_min, c_max, c_step)
-    g_range = log_scale(0.1, 1.0, 0.05)
+    g_range = log_scale(0.5, 1.5, 0.1)
     for i in b_range:
         for j in c_range:
             for k in g_range:
@@ -215,11 +215,13 @@ def extract_model():
     # READING VALIDATION FILE
     validation = open("results\\Validation.txt", "r")
     lines = validation.readlines()
-    # Matrix of Models such as (B, C, Gamma, Validation Score, Classification Score)
+    # Matrix of Models such as (B, C, Gamma, Validation Score, Classification Score, Standard Deviation)
     models = list()
-    for i in range(2, len(lines), 143):
+    for i in range(2, len(lines), 145):
         result = re.findall(r"\d+\.\d*", lines[i])
         if len(result) == 3:
+            risk = re.findall(r"\d+\.\d*", lines[i+142])
+            result.append(risk[0])
             risk = re.findall(r"\d+\.\d*", lines[i+140])
             result.append(risk[0])
             models.append(result)
@@ -242,12 +244,13 @@ def extract_model():
 
     # EXTRACTING BEST MODELS
     matrix = np.asarray(models, dtype=np.float32)
-    sorted = np.lexsort((matrix[:, 4], matrix[:, 3]))
+    sorted = np.lexsort((matrix[:, 4], matrix[:, 5], matrix[:, 3]))
     best_model = matrix[sorted][0]
     print("---------------------------------------------------")
     print("OPTIMAL MODEL FOR MOON DATASET")
     print("CASE : B = {}, C = {}, Gamma = {}\n".format(best_model[0], best_model[1], best_model[2]))
     print("Validation Risk = {}".format(best_model[3]))
+    print("Standard Deviation = {}".format(best_model[5]))
     print("Classification Risk = {}".format(best_model[4]))
     print("---------------------------------------------------")
     return best_model
@@ -258,6 +261,7 @@ def main():
     # datasets = generate_moon_dataset()
     # plot_datasets(datasets)
     # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
+    models = extract_model()
 
     # amazon = read_amazon()
     # plot_amazon(amazon)
@@ -266,8 +270,6 @@ def main():
     # result = log_scale(0.1, 1.0, 0.05)
     # for i in result:
     #     print(i)
-
-    models = extract_model()
 
     print("---------------------------------------------------")
     print("                    FINISHED")
