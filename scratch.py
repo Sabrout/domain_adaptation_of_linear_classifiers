@@ -190,7 +190,7 @@ def dalc_amazon(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
             for k in g_range:
                 text_file = open("results\\amazon.txt", "a")
                 text_file.write("---------------------------------------------------\n")
-                text_file.write("MOONS DATABASE\n")
+                text_file.write("AMAZON DATABASE\n")
                 text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(i, j, k))
                 text_file.write("---------------------------------------------------\n")
                 text_file.close()
