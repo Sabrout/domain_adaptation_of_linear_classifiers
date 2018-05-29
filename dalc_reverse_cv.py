@@ -141,6 +141,8 @@ for i_fold in range(args.nb_folds):
 ############################################################################### 
 print('\n... Summary ...')
 ###############################################################################
+# Added Standard Deviation Calculation
+standard_deviation = np.std(risk_list)
 valid_risk = np.mean(risk_list)
 
 row_format = "{:<10}" * 5
@@ -149,6 +151,8 @@ print('-'*55)
 for i in range(args.nb_folds):
     print(row_format.format(i+1, nb_source-len(source_indices_groups[i]), nb_target-len(target_indices_groups[i]), len(source_indices_groups[i]), risk_list[i]))
 
+# Added Standard Deviation Print
+print('\nStandard Deviation = ' + str(standard_deviation))
 print('\nValidation risk = ' + str(valid_risk))
 
 

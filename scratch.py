@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import glob
+import re
 
 
 def rotate_point(point, angle, center_point=(0, 0)):
@@ -41,6 +42,32 @@ def adapt_labels(dataset):
     for i in range(0, len(dataset[1])):
         if dataset[1][i] == 0:
             dataset[1][i] = -1
+
+
+def clear_folder(path):
+    files = glob.glob(path)
+    for f in files:
+        os.remove(f)
+
+
+def clean_tmp():
+    clear_folder("models/*")
+    clear_folder("predictions/*")
+    clear_folder("results/*")
+    clear_folder("data/*")
+
+
+def log_scale(start, end, step=0.1):
+    scale = list()
+    log_start = np.log10(start)
+    log_end = np.log10(end)
+    # print(log_start)
+    # print(log_end)
+    range = np.arange(log_start, log_end, step)
+    for i in range:
+        tmp = 10**i
+        scale.append(tmp)
+    return scale
 
 
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
@@ -117,11 +144,11 @@ def plot_amazon(datasets):
     plt.show()
 
 
-def dalc_tune(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
+def dalc_tune(b_min, b_max, c_min, c_max, b_step=0.1, c_step=0.1):
     # B-VALUE & C-VALUE TUNING
-    b_range = np.arange(b_min, b_max, b_step)
-    c_range = np.arange(c_min, c_max, c_step)
-    g_range = np.arange(0.1, 1.5, 0.5)
+    b_range = log_scale(b_min, b_max, b_step)
+    c_range = log_scale(c_min, c_max, c_step)
+    g_range = log_scale(0.1, 1.0, 0.05)
     for i in b_range:
         for j in c_range:
             for k in g_range:
@@ -157,7 +184,7 @@ def dalc_amazon(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
     # B-VALUE & C-VALUE TUNING
     b_range = np.arange(b_min, b_max, b_step)
     c_range = np.arange(c_min, c_max, c_step)
-    g_range = np.arange(0.1, 1.5, 0.5)
+    g_range = np.arange(0.1, 1.0, 0.5)
     for i in b_range:
         for j in c_range:
             for k in g_range:
@@ -184,28 +211,64 @@ def read_amazon():
     return source, target
 
 
-def clear_folder(path):
-    files = glob.glob(path)
-    for f in files:
-        os.remove(f)
+def extract_model():
+    # READING VALIDATION FILE
+    validation = open("results\\Validation.txt", "r")
+    lines = validation.readlines()
+    # Matrix of Models such as (B, C, Gamma, Validation Score, Classification Score)
+    models = list()
+    for i in range(2, len(lines), 143):
+        result = re.findall(r"\d+\.\d*", lines[i])
+        if len(result) == 3:
+            risk = re.findall(r"\d+\.\d*", lines[i+140])
+            result.append(risk[0])
+            models.append(result)
+        else:
+            print('VALIDATION - LINE READING ERROR')
+    validation.close()
 
+    # READING CLASSIFICATION FILE
+    classification = open("results\\Classification.txt", "r")
+    lines = classification.readlines()
+    j = 0
+    for i in range(12, len(lines), 13):
+        result = re.findall(r"\d+\.\d*", lines[i])
+        if len(result) == 1:
+            models[j].append(result[0])
+            j += 1
+        else:
+            print('CLASSIFICATION - LINE READING ERROR')
+    classification.close()
 
-def clean_tmp():
-    clear_folder("models/*")
-    clear_folder("predictions/*")
-    clear_folder("results/*")
-    clear_folder("data/*")
+    # EXTRACTING BEST MODELS
+    matrix = np.asarray(models, dtype=np.float32)
+    sorted = np.lexsort((matrix[:, 4], matrix[:, 3]))
+    best_model = matrix[sorted][0]
+    print("---------------------------------------------------")
+    print("OPTIMAL MODEL FOR MOON DATASET")
+    print("CASE : B = {}, C = {}, Gamma = {}\n".format(best_model[0], best_model[1], best_model[2]))
+    print("Validation Risk = {}".format(best_model[3]))
+    print("Classification Risk = {}".format(best_model[4]))
+    print("---------------------------------------------------")
+    return best_model
 
 
 def main():
-    clean_tmp()
-    datasets = generate_moon_dataset()
-    plot_datasets(datasets)
-    dalc_tune(0.1, 1.5, 0.1, 1.5, 0.5, 0.5)
+    # clean_tmp()
+    # datasets = generate_moon_dataset()
+    # plot_datasets(datasets)
+    # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
 
     # amazon = read_amazon()
     # plot_amazon(amazon)
     # dalc_amazon(1, 5, 0.1, 1.5, 2, 0.5)
+
+    # result = log_scale(0.1, 1.0, 0.05)
+    # for i in result:
+    #     print(i)
+
+    models = extract_model()
+
     print("---------------------------------------------------")
     print("                    FINISHED")
     print("---------------------------------------------------")
