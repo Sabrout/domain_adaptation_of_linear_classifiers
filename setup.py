@@ -73,16 +73,16 @@ def log_scale(start, end, step=0.1):
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
     source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=False, random_state=None)
     adapt_labels(source_dataset)
-    datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True, comment=None,
-                                query_id=None, multilabel=False)
+    datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True
+                                , comment=None, query_id=None, multilabel=False)
     # shift_dataset(source_dataset)
 
     target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=False, random_state=2)
     adapt_labels(target_dataset)
     # shift_dataset(target_dataset)
     rotate_dataset(target_dataset, 30)
-    datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True, comment=None,
-                                query_id=None, multilabel=False)
+    datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True
+                                , comment=None, query_id=None, multilabel=False)
 
     test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=False, random_state=1)
     adapt_labels(test_dataset)
@@ -203,6 +203,13 @@ def dalc_amazon(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
                            "-p predictions\\amazon-b{}c{}g{}.bin amazon\\test.svmlight >> ".format(i, j, k, i, j, k)
                 command += "results\\amazon.txt"
                 os.system(command)
+
+
+def read_data():
+    source = dataset.dataset_from_svmlight_file('data\source.svmlight')
+    target = dataset.dataset_from_svmlight_file('data\\target.svmlight')
+    test = dataset.dataset_from_svmlight_file('data\\test.svmlight')
+    return source, target, test
 
 
 def read_amazon():
