@@ -206,9 +206,9 @@ def dalc_amazon(b_min, b_max, c_min, c_max, b_step=1.0, c_step=1.0):
 
 
 def read_data():
-    source = dataset.dataset_from_svmlight_file('data\source.svmlight')
-    target = dataset.dataset_from_svmlight_file('data\\target.svmlight')
-    test = dataset.dataset_from_svmlight_file('data\\test.svmlight')
+    source = dataset.dataset_from_svmlight_file('data\source.svmlight', 2)
+    target = dataset.dataset_from_svmlight_file('data\\target.svmlight', 2)
+    test = dataset.dataset_from_svmlight_file('data\\test.svmlight', 2)
     return source, target, test
 
 
