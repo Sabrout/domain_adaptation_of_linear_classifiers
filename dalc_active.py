@@ -51,6 +51,7 @@ def active_dalc(cost=50, iterations=10):
     plt.pcolormesh(xx, yy, Z2d, cmap=plt.cm.Paired)
     # We plot also the training points
     plt.scatter(sep_dataset.X[:, 0], sep_dataset.X[:, 1], c=sep_dataset.Y, cmap=plt.cm.coolwarm)
+    plt.savefig('results/linear_separator.png')
     plt.show()
 
 
