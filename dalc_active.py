@@ -38,7 +38,7 @@ def plot_model(dataset, model):
     plt.show()
 
 
-def active_dalc(cost=50, iterations=10):
+def active_dalc(cost=100, iterations=10):
     # Reading Datasets (Source, Target, Test)
     source, target, test = setup.read_data()
     sep_dataset = dataset.Dataset()
@@ -66,8 +66,8 @@ def active_dalc(cost=50, iterations=10):
     classifier = dalc.learn(source, target, kernel)
 
     # Capacity per iteration
-    capacity = cost/(2*iterations)
-    
+    capacity = cost//(2*iterations)
+
 
 
     plot_model(sep_dataset, h_sep)
