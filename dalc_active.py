@@ -12,6 +12,8 @@ import dataset
 import numpy as np
 import setup
 import matplotlib.pyplot as plt
+from dalc import Dalc
+from dalc import Kernel
 
 
 def plot_model(dataset, model):
@@ -53,9 +55,20 @@ def active_dalc(cost=50, iterations=10):
     # Saving Labels in sep_dataset
     sep_dataset.X = np.asarray(X)
     sep_dataset.Y = np.asarray(Y)
+
     # Linear Separator h_sep
     h_sep = svm.SVC(kernel='linear', C=1.0)
     h_sep.fit(sep_dataset.X, sep_dataset.Y)
+
+    # DALC initial model with Moon dataset's optimal parameters
+    dalc = Dalc(0.19952623546123505, 0.25118863582611084)
+    kernel = Kernel('rbf', 1.2559431791305542)
+    classifier = dalc.learn(source, target, kernel)
+
+    # Capacity per iteration
+    capacity = cost/(2*iterations)
+    
+
 
     plot_model(sep_dataset, h_sep)
 
