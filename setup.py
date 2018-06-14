@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import os
 import glob
 import re
+from sklearn import svm
 
 
 def rotate_point(point, angle, center_point=(0, 0)):
@@ -24,7 +25,7 @@ def rotate_point(point, angle, center_point=(0, 0)):
 
 
 def shift_point(point):
-    new_point = (point[0] - 0.5, point[1] - 0.5)
+    new_point = (point[0] - 0.5, point[1] - 0.25)
     return new_point
 
 
@@ -61,8 +62,6 @@ def log_scale(start, end, step=0.1):
     scale = list()
     log_start = np.log10(start)
     log_end = np.log10(end)
-    # print(log_start)
-    # print(log_end)
     range = np.arange(log_start, log_end, step)
     for i in range:
         tmp = 10**i
@@ -75,18 +74,18 @@ def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
     adapt_labels(source_dataset)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
-    # shift_dataset(source_dataset)
+    shift_dataset(source_dataset)
 
     target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=False, random_state=2)
     adapt_labels(target_dataset)
-    # shift_dataset(target_dataset)
+    shift_dataset(target_dataset)
     rotate_dataset(target_dataset, 30)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
     test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=False, random_state=1)
     adapt_labels(test_dataset)
-    # shift_dataset(test_dataset)
+    shift_dataset(test_dataset)
     rotate_dataset(test_dataset, 30)
     datasets.dump_svmlight_file(test_dataset[0], test_dataset[1], 'data\\test.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
@@ -100,14 +99,14 @@ def plot_datasets(datasets):
     plt.subplot(221, aspect='equal')
     plt.title("Source Dataset", fontsize='small')
     X1, Y1 = datasets[0]
-    plt.axis([-1.5, 2.25, -0.75, 1.75])
+    plt.axis([-2.0, 2.0, -1.0, 1.0])
     plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
                 s=25, edgecolor='k')
 
     plt.subplot(222, aspect='equal')
     plt.title("Target Dataset", fontsize='small')
     X1, Y1 = datasets[1]
-    plt.axis([-1.5, 2.25, -0.75, 1.75])
+    plt.axis([-1.5, 1.5, -1.25, 1.25])
     plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
                 s=25, edgecolor='k')
 
@@ -115,7 +114,7 @@ def plot_datasets(datasets):
     plt.title("Test Dataset",
               fontsize='small')
     X2, Y2 = datasets[2]
-    plt.axis([-1.5, 2.25, -0.75, 1.75])
+    plt.axis([-1.5, 1.5, -1.25, 1.25])
     plt.scatter(X2[:, 0], X2[:, 1], marker='o', c=Y2,
                 s=25, edgecolor='k')
 
@@ -263,12 +262,37 @@ def extract_model():
     return best_model
 
 
+def plot_model(dataset, dataset2, model):
+    # We will now create a 2d graphic to illustrate the learning result
+    # We create a mesh to plot in
+    h = .02  # grid step
+    x_min = dataset[0][:, 0].min() - 1
+    x_max = dataset[0][:, 0].max() + 1
+    y_min = dataset[0][:, 1].min() - 1
+    y_max = dataset[0][:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+    # The grid is created, the intersections are in xx and yy
+
+    Z2d = model.predict(np.c_[xx.ravel(), yy.ravel()])  # We predict all the grid
+    Z2d = Z2d.reshape(xx.shape)
+    plt.figure()
+    plt.pcolormesh(xx, yy, Z2d, cmap=plt.cm.Paired)
+    # We plot also the training points
+    plt.scatter(dataset[0][:, 0], dataset[0][:, 1], c=dataset[1], cmap=plt.cm.coolwarm)
+    plt.scatter(dataset2[0][:, 0], dataset2[0][:, 1], c=dataset2[1], cmap=plt.cm.coolwarm)
+
+    plt.show()
+    # h_sep = svm.SVC(kernel='linear', C=1.0)
+    # h_sep.fit(datasets[0][0], datasets[0][1])
+    # plot_model(datasets[0], datasets[1], h_sep)
+
+
 def main():
-    # clean_tmp()
+    clean_tmp()
     # datasets = generate_moon_dataset()
     # plot_datasets(datasets)
     # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
-    models = extract_model()
+    # models = extract_model()
 
     # amazon = read_amazon()
     # plot_amazon(amazon)
