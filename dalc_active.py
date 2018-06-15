@@ -59,12 +59,132 @@ def closest_n(X_array, n, clf):
     return np.sort(abs_dists.argsort()[:n])
 
 
-def active_dalc(cost=50, iterations=5):
-    # Reading Datasets (Source, Target, Test)
-    source, target, test = setup.read_data()
+def get_source_data(data, labels):
+    result = dataset.Dataset()
+    result.X = list()
+    result.Y = list()
+    for i in range(0, len(data.Y)):
+        if data.Y[i] == 1:
+            result.X.append(data.X[i])
+            result.Y.append(labels[i])
+    # print(len(result.Y))
+    return result
+
+
+def get_target_data(data, labels):
+    result = dataset.Dataset()
+    result.X = list()
+    result.Y = list()
+    for i in range(0, len(data.Y)):
+        if data.Y[i] == -1:
+            result.X.append(data.X[i])
+            result.Y.append(labels[i])
+    # print(len(result.Y))
+    return result
+
+
+def filtering_samples(data, labels, classifier, closest_samples, furthest_samples):
+    # Closest Samples
+    for j in range(0, len(closest_samples)):
+        if classifier.predict([data.X[j]]) * data.Y[closest_samples[j]] < 0 and data.Y[closest_samples[j]] == 1:
+            data.X = np.delete(data.X, closest_samples[j], 0)
+            data.Y = np.delete(data.Y, closest_samples[j], 0)
+            labels = np.delete(labels, closest_samples[j], 0)
+            # Updating other indices
+            for k in range(j, len(closest_samples)):
+                closest_samples[k] -= 1
+            for k in range(0, len(furthest_samples)):
+                if furthest_samples[k] >= closest_samples[j]:
+                    furthest_samples[k] -= 1
+            # Deleting the sample
+            # print("deleted {} label {}".format(closest_samples[j], data.Y[closest_samples[j]]))
+            closest_samples[j] = -len(data.X)
+    # Clearing closest_samples
+    closest_samples = closest_samples[closest_samples >= 0]
+
+    # Furthest Samples
+    for j in range(0, len(furthest_samples)):
+        if classifier.predict([data.X[j]]) * data.Y[furthest_samples[j]] < 0 and data.Y[furthest_samples[j]] == 1:
+            data.X = np.delete(data.X, furthest_samples[j], 0)
+            data.Y = np.delete(data.Y, furthest_samples[j], 0)
+            labels = np.delete(labels, furthest_samples[j], 0)
+            # Updating other indices
+            for k in range(j, len(furthest_samples)):
+                furthest_samples[k] -= 1
+            for k in range(0, len(closest_samples)):
+                if closest_samples[k] >= furthest_samples[j]:
+                    closest_samples[k] -= 1
+            # Deleting the sample
+            # print("deleted {} label {}".format(furthest_samples[j], data.Y[furthest_samples[j]]))
+            furthest_samples[j] = -len(data.X)
+    # Clearing furthest_samples
+    furthest_samples = furthest_samples[furthest_samples >= 0]
+    return closest_samples, furthest_samples, labels
+
+
+def print_template(data, labels, closest_samples, furthest_samples):
+    print(closest_samples)
+    temp = list()
+    for i in closest_samples:
+        temp.append(data.Y[i])
+    print(temp)
+    print(furthest_samples)
+    temp = list()
+    for i in furthest_samples:
+        temp.append(data.Y[i])
+    print(temp)
+    get_source_data(data, labels)
+    get_target_data(data, labels)
+
+
+def active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost=50, iterations=5):
+
+    # Capacity per iteration
+    capacity = cost//(2*iterations)
+    if capacity < 1:
+        raise Exception('---- OUT OF COST ----')
+    closest_samples = closest_n(data.X, capacity, h_sep)
+    furthest_samples = furthest_n(data.X, capacity, h_sep)
+
+    # Print Template
+    # print_template(data, labels, closest_samples, furthest_samples)
+
+    # Removing misclassified source samples by DALC
+    closest_samples, furthest_samples, labels = filtering_samples(data, labels, classifier, closest_samples, furthest_samples)
+
+    # Print Template
+    # print_template(data, labels, closest_samples, furthest_samples)
+
+    # Removing closest and furthest from target and adding them to source
+    for j in closest_samples:
+        if data.Y[j] == -1:
+            if cost == 0:
+                raise Exception('---- OUT OF COST ----')
+            cost -= 1
+        data.Y[j] = 1
+    for j in furthest_samples:
+        if data.Y[j] == -1:
+            if cost == 0:
+                raise Exception('---- OUT OF COST ----')
+            cost -= 1
+        data.Y[j] = 1
+
+    # Retrain DALC
+    classifier = dalc.learn(get_source_data(data, labels), get_target_data(data, labels), kernel)
+    # Retrain h_sep
+    h_sep.fit(data.X, data.Y)
+
+    plot_model(data, h_sep, 'linear_separator', closest_samples, furthest_samples)
+
+    return data, labels, classifier, h_sep, cost
+
+
+def active_dalc(source, target, cost=50, iterations=5):
+
     data = dataset.Dataset()
     X = list()
     Y = list()
+    labels = list()
     # Labeling Source Dataset
     for i in source.X:
         X.append(i)
@@ -73,6 +193,12 @@ def active_dalc(cost=50, iterations=5):
     for i in target.X:
         X.append(i)
         Y.append(-1)
+    # Saving DALC labels
+    for i in source.Y:
+        labels.append(i)
+    for i in target.Y:
+        labels.append(i)
+    labels = np.asarray(labels)
     # Saving Labels in sep_dataset
     data.X = np.asarray(X)
     data.Y = np.asarray(Y)
@@ -84,58 +210,29 @@ def active_dalc(cost=50, iterations=5):
     # DALC initial model with Moon dataset's optimal parameters
     dalc = Dalc(0.6309573650360107, 0.1258925348520279)
     kernel = Kernel('rbf', 1.2559431791305542)
-    classifier = dalc.learn(source, target, kernel)
+    classifier = dalc.learn(get_source_data(data, labels), get_target_data(data, labels), kernel)
 
-    # Capacity per iteration
-    capacity = cost//(2*iterations)
-    closest_samples = closest_n(X, capacity, h_sep)
-    furthest_samples = furthest_n(X, capacity, h_sep)
+    # Iteration Loop
+    for i in range(0, iterations):
+        data, labels, classifier, h_sep, cost = \
+            active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost, iterations)
 
-    # Removing misclassified source samples by DALC
-
-    # Closest Samples
-    for j in range(0, len(closest_samples)):
-        if classifier.predict([data.X[j]])*data.Y[closest_samples[j]] < 0:
-            data.X = np.delete(data.X, closest_samples[j], 0)
-            data.Y = np.delete(data.Y, closest_samples[j], 0)
-            # Updating other indices
-            for k in range(j, len(closest_samples)):
-                closest_samples[k] -= 1
-            for k in range(0, len(furthest_samples)):
-                if furthest_samples[k] >= closest_samples[j]:
-                    furthest_samples[k] -= 1
-            # Deleting the sample
-            closest_samples[j] = -len(data.X)
-    # Clearing closest_samples
-    closest_samples = closest_samples[closest_samples >= 0]
-
-    # Furthest Samples
-    for j in range(0, len(furthest_samples)):
-        if classifier.predict([data.X[j]]) * data.Y[furthest_samples[j]] < 0:
-            data.X = np.delete(data.X, furthest_samples[j], 0)
-            data.Y = np.delete(data.Y, furthest_samples[j], 0)
-            # Updating other indices
-            for k in range(j, len(furthest_samples)):
-                furthest_samples[k] -= 1
-            for k in range(0, len(closest_samples)):
-                if closest_samples[k] >= furthest_samples[j]:
-                    closest_samples[k] -= 1
-            # Deleting the sample
-            furthest_samples[j] = -len(data.X)
-    # Clearing furthest_samples
-    furthest_samples = furthest_samples[furthest_samples >= 0]
-
-    # Removing closest and furthest from target
-    
-    # ADD closest and furthest to source
-    # Retrain DALC
-    # Retrain h_sep
-
-    plot_model(data, h_sep, 'linear_separator', closest_samples, furthest_samples)
+    return dalc, classifier
 
 
 def main():
-    active_dalc()
+    # Reading Datasets (Source, Target, Test)
+    source, target, test = setup.read_data()
+
+    # Executing Algorithm
+    dalc, classifier = active_dalc(source, target, 50, 5)
+
+    # Predictions
+    predictions = classifier.predict(test.X)
+
+    # Calculating Risk
+    risk = classifier.calc_risk(test.Y, predictions=predictions)
+    print('Test risk = ' + str(risk))
 
     print("---------------------------------------------------")
     print("                    FINISHED")

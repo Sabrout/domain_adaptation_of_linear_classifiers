@@ -4,15 +4,7 @@
     <list default="true" id="f6f74e0f-5b1e-413c-adfa-988974c6bb36" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dalc_active.py" beforeDir="false" afterPath="$PROJECT_DIR$/dalc_active.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/source.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/source.svmlight" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/target.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/target.svmlight" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.svmlight" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Classification.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/Classification.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Optimal DALC model.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Validation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/Validation.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/datasets_display.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/linear_separator.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/linear_separator.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +18,8 @@
       <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4301">
-              <caret line="261" column="21" selection-start-line="261" selection-start-column="21" selection-end-line="261" selection-end-column="21" />
+            <state relative-caret-position="2089">
+              <caret line="271" column="38" lean-forward="true" selection-start-line="271" selection-start-column="38" selection-end-line="271" selection-end-column="38" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -35,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dalc_active.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dalc_active.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dalc_active.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="122" column="33" lean-forward="true" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+            <state relative-caret-position="290">
+              <caret line="203" column="26" lean-forward="true" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
               <folding>
                 <element signature="e#218#241#0" expanded="true" />
               </folding>
@@ -47,19 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="distance.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/scipy/spatial/distance.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40290">
-              <caret line="2370" selection-start-line="2370" selection-end-line="2370" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="kernel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2074">
+            <state relative-caret-position="899">
               <caret line="124" selection-start-line="124" selection-end-line="124" />
             </state>
           </provider>
@@ -68,8 +51,8 @@
       <file leaf-file-name="dalc_classify.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dalc_classify.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+            <state relative-caret-position="763">
+              <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -77,17 +60,17 @@
       <file leaf-file-name="dataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="357">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dalc_reverse_cv.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dalc_reverse_cv.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dalc_reverse_cv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2193">
-              <caret line="138" column="43" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="43" />
+            <state relative-caret-position="409">
+              <caret line="136" column="56" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -136,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dataset.py" />
         <option value="$PROJECT_DIR$/dalc.py" />
         <option value="$PROJECT_DIR$/dalc_learn.py" />
         <option value="$PROJECT_DIR$/dalc_reverse_cv.py" />
@@ -144,6 +126,7 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$USER_HOME$/Desktop/bla.py" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/dataset.py" />
         <option value="$PROJECT_DIR$/dalc_active.py" />
       </list>
     </option>
@@ -350,9 +333,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dalc_reverse_cv.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dalc.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -536,13 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dalc_reverse_cv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="138" column="43" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/Downloads/Full_Program_Alchemist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
@@ -574,49 +547,63 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/scipy/spatial/distance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40290">
+        <state relative-caret-position="899">
           <caret line="2370" selection-start-line="2370" selection-end-line="2370" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel.py">
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/sklearn/svm/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dalc_classify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+        <state relative-caret-position="311">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="357">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4301">
-          <caret line="261" column="21" selection-start-line="261" selection-start-column="21" selection-end-line="261" selection-end-column="21" />
+        <state relative-caret-position="2089">
+          <caret line="271" column="38" lean-forward="true" selection-start-line="271" selection-start-column="38" selection-end-line="271" selection-end-column="38" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kernel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dalc_classify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="763">
+          <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dalc_active.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="122" column="33" lean-forward="true" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+        <state relative-caret-position="290">
+          <caret line="203" column="26" lean-forward="true" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
           <folding>
             <element signature="e#218#241#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dalc_reverse_cv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="136" column="56" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="56" />
         </state>
       </provider>
     </entry>
