@@ -88,6 +88,11 @@ def get_target_data(data, labels):
     return result
 
 
+def add_point(data, X, Y):
+    np.append(data.X, X)
+    np.append(data.Y, Y)
+
+
 def filtering_samples(data, labels, classifier, closest_samples, furthest_samples):
     # Closest Samples
     for j in range(0, len(closest_samples)):
@@ -166,12 +171,16 @@ def active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost=50, ite
             if cost == 0:
                 raise Exception('---- OUT OF COST ----')
             cost -= 1
+            for i in range(0, 10):
+                add_point(data, data.X[j], data.Y[j])
         data.Y[j] = 1
     for j in furthest_samples:
         if data.Y[j] == -1:
             if cost == 0:
                 raise Exception('---- OUT OF COST ----')
             cost -= 1
+            for i in range(0, 10):
+                add_point(data, data.X[j], data.Y[j])
         data.Y[j] = 1
 
     # Retrain DALC
@@ -179,7 +188,7 @@ def active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost=50, ite
     # Retrain h_sep
     h_sep.fit(data.X, data.Y)
 
-    plot_model(data, classifier, 'active_dalc', closest_samples, furthest_samples)
+    # plot_model(data, classifier, 'active_dalc', closest_samples, furthest_samples)
 
     return data, labels, classifier, h_sep, cost
 
@@ -205,16 +214,17 @@ def active_dalc(source, target, cost=50, iterations=5):
         labels.append(i)
     labels = np.asarray(labels)
     # Saving Labels in sep_dataset
-    data.X = np.asarray(X)
-    data.Y = np.asarray(Y)
+    data.X = X
+    data.Y = Y
 
     # Linear Separator h_sep
-    h_sep = svm.SVC(kernel='linear', C=1.0)
+    h_sep = svm.SVC(kernel='rbf', C=15.1)                # Manually Tuned Parameters
     h_sep.fit(data.X, data.Y)
+    print('Separator Score = ' + str(h_sep.score(data.X, data.Y)))
 
     # DALC initial model with Moon dataset's optimal parameters
-    dalc = Dalc(0.6309573650360107, 0.1258925348520279)
-    kernel = Kernel('rbf', 1.2559431791305542)
+    dalc = Dalc(0.6309573650360107, 0.1258925348520279)  # Manually Tuned Parameters
+    kernel = Kernel('rbf', 1.2559431791305542)           # Manually Tuned Parameters
     classifier = dalc.learn(get_source_data(data, labels), get_target_data(data, labels), kernel)
 
     # Iteration Loop
