@@ -292,7 +292,7 @@ def main():
     # datasets = generate_moon_dataset()
     # plot_datasets(datasets)
     # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
-    # models = extract_model()
+    models = extract_model()
 
     # amazon = read_amazon()
     # plot_amazon(amazon)

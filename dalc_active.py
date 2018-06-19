@@ -14,6 +14,8 @@ import setup
 import matplotlib.pyplot as plt
 from dalc import Dalc
 from dalc import Kernel
+import pickle
+from sklearn import datasets
 
 
 def plot_model(dataset, model, fig_name, closest=list(), furthest=list()):
@@ -30,7 +32,10 @@ def plot_model(dataset, model, fig_name, closest=list(), furthest=list()):
     Z2d = model.predict(np.c_[xx.ravel(), yy.ravel()])  # We predict all the grid
     Z2d = Z2d.reshape(xx.shape)
     plt.figure()
-    plt.pcolormesh(xx, yy, Z2d, cmap=plt.cm.Paired)
+    if fig_name == 'linear_seperator':
+        plt.pcolormesh(xx, yy, Z2d, cmap=plt.cm.Paired)
+    else:
+        plt.pcolormesh(xx, yy, Z2d)
     # We plot also the training points
     plt.scatter(dataset.X[:, 0], dataset.X[:, 1], c=dataset.Y, cmap=plt.cm.coolwarm)
 
@@ -174,7 +179,7 @@ def active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost=50, ite
     # Retrain h_sep
     h_sep.fit(data.X, data.Y)
 
-    plot_model(data, h_sep, 'linear_separator', closest_samples, furthest_samples)
+    plot_model(data, classifier, 'active_dalc', closest_samples, furthest_samples)
 
     return data, labels, classifier, h_sep, cost
 
@@ -217,7 +222,43 @@ def active_dalc(source, target, cost=50, iterations=5):
         data, labels, classifier, h_sep, cost = \
             active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost, iterations)
 
-    return dalc, classifier
+    return dalc, classifier, data, labels
+
+
+def save_model(classifier, cost, iterations):
+    filename = 'active\models\model-{}-{}.bin'.format(cost, iterations)
+    try:
+        with open(filename, 'wb') as model:
+            pickle.dump(classifier, model, pickle.HIGHEST_PROTOCOL)
+        print('File "' + filename + '" created.')
+    except:
+        print('ERROR: Unable to write model file "' + filename + '".')
+
+
+def save_data(data, labels):
+    # Saving source dataset
+    datasets.dump_svmlight_file(get_source_data(data, labels).X, get_source_data(data, labels).Y,
+                                'active\data\\source.svmlight', zero_based=True
+                                , comment=None, query_id=None, multilabel=False)
+    # Saving target dataset
+    datasets.dump_svmlight_file(get_target_data(data, labels).X, get_target_data(data, labels).Y,
+                                'active\data\\target.svmlight', zero_based=True
+                                , comment=None, query_id=None, multilabel=False)
+
+
+# def test_validate(cost, iteration):
+#     # Testing the model
+#     command = ""
+#     command += "python dalc_classify.py -f svmlight -m active\models\model-{}-{}.bin " \
+#                "-p active\predictions\predict-{}-{}.bin active\data\\test.svmlight >> ".format(cost, iteration,
+#                                                                                          cost, iteration)
+#     command += "active\\results\\classification_risk.txt"
+#     os.system(command)
+#     # Validating the model
+#     command = ""
+#     command += "python dalc_reverse_cv.py -b {} -c {} -k rbf -g {} -f svmlight " \
+#                "data\source.svmlight data\\target.svmlight >> results\Validation.txt".format(i, j, k)
+#     os.system(command)
 
 
 def main():
@@ -225,7 +266,11 @@ def main():
     source, target, test = setup.read_data()
 
     # Executing Algorithm
-    dalc, classifier = active_dalc(source, target, 50, 5)
+    cost = 100
+    iterations = 5
+    dalc, classifier, data, labels = active_dalc(source, target, cost, iterations)
+    save_data(data, labels)
+    # save_model(classifier, cost, iterations)
 
     # Predictions
     predictions = classifier.predict(test.X)
