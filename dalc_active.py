@@ -18,33 +18,29 @@ import pickle
 from sklearn import datasets
 
 
-def plot_model(dataset, model, fig_name, closest=list(), furthest=list()):
-    # We will now create a 2d graphic to illustrate the learning result
-    # We create a mesh to plot in
-    h = .02  # grid step
-    x_min = dataset.X[:, 0].min() - 1
-    x_max = dataset.X[:, 0].max() + 1
-    y_min = dataset.X[:, 1].min() - 1
-    y_max = dataset.X[:, 1].max() + 1
-    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-    # The grid is created, the intersections are in xx and yy
+def plot_model(X, y, model, X_target, fig_name):
+    h = .02  # step size in the mesh
+
+    # create a mesh to plot in
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                         np.arange(y_min, y_max, h))
 
     Z2d = model.predict(np.c_[xx.ravel(), yy.ravel()])  # We predict all the grid
     Z2d = Z2d.reshape(xx.shape)
-    plt.figure()
-    if fig_name == 'linear_seperator':
-        plt.pcolormesh(xx, yy, Z2d, cmap=plt.cm.Paired)
-    else:
-        plt.pcolormesh(xx, yy, Z2d)
-    # We plot also the training points
-    plt.scatter(dataset.X[:, 0], dataset.X[:, 1], c=dataset.Y, cmap=plt.cm.coolwarm)
+    plt.contourf(xx, yy, Z2d, levels=[-5, -0.01, 0.01, 5], cmap=plt.cm.coolwarm, alpha=0.5)
+    plt.contour(xx, yy, Z2d,1, linewidths=2.0, colors='black')
 
-    # We plot the closest points to h_sep
-    plt.scatter(dataset.X[closest][:, 0], dataset.X[closest][:, 1], color='yellow')
-    plt.scatter(dataset.X[furthest][:, 0], dataset.X[furthest][:, 1], color='green')
-
-    # Save and show figure
-    plt.savefig('results/{}.png'.format(fig_name))
+    # Plot also the training points
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm)
+    plt.scatter(X_target[:, 0], X_target[:, 1], c='black', marker='.')
+    plt.xlim(xx.min(), xx.max())
+    plt.ylim(yy.min(), yy.max())
+    plt.xticks(())
+    plt.yticks(())
+    plt.title('Active PAC-Bayesian Domain Adaptation')
+    plt.savefig('results/model_plots/{}.png'.format(fig_name))
     plt.show()
 
 
@@ -147,53 +143,69 @@ def print_template(data, labels, closest_samples, furthest_samples):
     get_target_data(data, labels)
 
 
-def active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost=50, iterations=5):
+def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost=50, iterations=5, fig_name=''):
 
-    # Capacity per iteration
-    capacity = cost//(2*iterations)
-    if capacity < 1:
+    if cost < 1:
         raise Exception('---- OUT OF COST ----')
-    closest_samples = closest_n(data.X, capacity, h_sep)
-    furthest_samples = furthest_n(data.X, capacity, h_sep)
 
     # Print Template
     # print_template(data, labels, closest_samples, furthest_samples)
+    capacity_close = cost // 2
+    capacity_far = cost // 2
+    while cost > 0:
+        tmp_cost = cost
+        break_bool = False
+        # print('cost {}'.format(cost))
+        # print('-----------')
 
-    # Removing misclassified source samples by DALC
-    closest_samples, furthest_samples, labels = filtering_samples(data, labels, classifier, closest_samples, furthest_samples)
+        closest_samples = closest_n(data.X, capacity_close, h_sep)
+        furthest_samples = furthest_n(data.X, capacity_far, h_sep)
+        # Removing misclassified source samples by DALC
+        closest_samples, furthest_samples, labels = filtering_samples(data, labels, classifier
+                                                                      , closest_samples, furthest_samples)
 
-    # Print Template
-    # print_template(data, labels, closest_samples, furthest_samples)
+        # Print Template
+        # print_template(data, labels, closest_samples, furthest_samples)
 
-    # Removing closest and furthest from target and adding them to source
-    for j in closest_samples:
-        if data.Y[j] == -1:
-            if cost == 0:
-                raise Exception('---- OUT OF COST ----')
-            cost -= 1
-            for i in range(0, 10):
-                add_point(data, data.X[j], data.Y[j])
-        data.Y[j] = 1
-    for j in furthest_samples:
-        if data.Y[j] == -1:
-            if cost == 0:
-                raise Exception('---- OUT OF COST ----')
-            cost -= 1
-            for i in range(0, 10):
-                add_point(data, data.X[j], data.Y[j])
-        data.Y[j] = 1
+        # Removing closest and furthest from target and adding them to source
+        for j in closest_samples:
+            if data.Y[j] == -1:
+                if cost == 0:
+                    break_bool = True
+                    break
+                cost -= 1
+                # for i in range(0, 10):
+                #     add_point(data, data.X[j], data.Y[j])
+            data.Y[j] = 1
+        for j in furthest_samples:
+            if break_bool: break
+            if data.Y[j] == -1:
+                if cost == 0:
+                    break_bool = True
+                    break
+                cost -= 1
+                # for i in range(0, 10):
+                #     add_point(data, data.X[j], data.Y[j])
+            data.Y[j] = 1
+
+        if break_bool:
+            break
+
+        if cost == tmp_cost:
+            # capacity_close += 1
+            capacity_far += 1
 
     # Retrain DALC
     classifier = dalc.learn(get_source_data(data, labels), get_target_data(data, labels), kernel)
     # Retrain h_sep
     h_sep.fit(data.X, data.Y)
 
-    # plot_model(data, classifier, 'active_dalc', closest_samples, furthest_samples)
+    # plot_model(data.X, data.Y, classifier, target.X, 'active_dalc{}'.format(fig_name))
 
     return data, labels, classifier, h_sep, cost
 
 
-def active_dalc(source, target, cost=50, iterations=5):
+def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0, fig_name=''):
 
     data = dataset.Dataset()
     X = list()
@@ -223,14 +235,20 @@ def active_dalc(source, target, cost=50, iterations=5):
     print('Separator Score = ' + str(h_sep.score(data.X, data.Y)))
 
     # DALC initial model with Moon dataset's optimal parameters
-    dalc = Dalc(0.6309573650360107, 0.1258925348520279)  # Manually Tuned Parameters
-    kernel = Kernel('rbf', 1.2559431791305542)           # Manually Tuned Parameters
+    dalc = Dalc(B, C)
+    kernel = Kernel('rbf', G)
     classifier = dalc.learn(get_source_data(data, labels), get_target_data(data, labels), kernel)
 
+    # Capacity per iteration
+    capacity = cost // (2 * iterations)
     # Iteration Loop
     for i in range(0, iterations):
         data, labels, classifier, h_sep, cost = \
-            active_iteration(data, labels, dalc, classifier, kernel, h_sep, cost, iterations)
+            active_iteration(data, target
+                             , labels, dalc, classifier, kernel, h_sep, capacity, iterations, fig_name)
+
+    # # Plotting
+    # plot_model(source.X, source.Y, classifier, test.X, '')
 
     return dalc, classifier, data, labels
 
@@ -245,14 +263,14 @@ def save_model(classifier, cost, iterations):
         print('ERROR: Unable to write model file "' + filename + '".')
 
 
-def save_data(data, labels):
+def save_data(data, labels, rotation=''):
     # Saving source dataset
     datasets.dump_svmlight_file(get_source_data(data, labels).X, get_source_data(data, labels).Y,
-                                'active\data\\source.svmlight', zero_based=True
+                                'active\data\\source{}.svmlight'.format(rotation), zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
     # Saving target dataset
     datasets.dump_svmlight_file(get_target_data(data, labels).X, get_target_data(data, labels).Y,
-                                'active\data\\target.svmlight', zero_based=True
+                                'active\data\\target{}.svmlight'.format(rotation), zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
 
@@ -271,14 +289,70 @@ def save_data(data, labels):
 #     os.system(command)
 
 
-def main():
+def multiple_rotations_experiment(cost, iterations, start_angle, end_angle):
+    for i in range(start_angle, end_angle, 10):
+        # Generating Datasets
+        datasets = setup.generate_moon_dataset(200, 200, 1000, i)
+        # Reading Datasets (Source, Target, Test)
+        source, target, test = setup.read_data()
+
+        setup.plot_datasets(datasets, 'rotation{}'.format(i))
+        setup.dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
+        model = setup.extract_model()
+        print("---------------------------------------------------")
+        print("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})".format(i))
+        print("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
+        print("Validation Risk = {}".format(model[3]))
+        print("Standard Deviation = {}".format(model[5]))
+        print("Classification Risk = {}".format(model[4]))
+        print("---------------------------------------------------")
+        # Predictions
+        predictions_dalc = model.predict(test.X)
+
+        # Calculating Risk
+        risk_dalc = model.calc_risk(test.Y, predictions=predictions_dalc)
+        print('DALC risk = ' + str(risk_dalc))
+
+        # Executing Algorithm
+        dalc, classifier, data, labels = active_dalc(source, target, test, cost, iterations, model[0], model[1], model[2]
+                                                     , 'moon_dataset_rotation{}'.format(i))
+        save_data(data, labels, str(i))
+
+        # Predictions
+        predictions = classifier.predict(test.X)
+
+        # Calculating Risk
+        risk = classifier.calc_risk(test.Y, predictions=predictions)
+
+        # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
+        # print('--------------------------------------------------')
+
+        text_file = open("results\\empirical_results.txt", "a")
+        text_file.write("===================================================\n")
+        text_file.write("MOON DATASET (ROTATION ={})\n".format(i))
+        text_file.write("ACTIVE DALC\n")
+        text_file.write("Classification Risk = {}\n".format(str(risk)))
+        text_file.write("---------------------------------------------------\n")
+        text_file.write("CLASSIC DALC\n")
+        text_file.write("Classification Risk = {}\n".format(str(risk_dalc)))
+        text_file.write("===================================================\n")
+        text_file.close()
+
+        # Plotting
+        plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
+
+
+def run_active_dalc():
     # Reading Datasets (Source, Target, Test)
     source, target, test = setup.read_data()
-
+    # setup.plot_datasets([(source.X, source.Y), (target.X, target.Y), (test.X, test.Y)], 'tmp')
     # Executing Algorithm
-    cost = 100
-    iterations = 5
-    dalc, classifier, data, labels = active_dalc(source, target, cost, iterations)
+    cost = 50
+    iterations = 10
+    dalc, classifier, data, labels = active_dalc(source, target, test, cost, iterations
+                                                 , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
+                                                 , 'manual_experiment')
+
     save_data(data, labels)
     # save_model(classifier, cost, iterations)
 
@@ -288,6 +362,13 @@ def main():
     # Calculating Risk
     risk = classifier.calc_risk(test.Y, predictions=predictions)
     print('Test risk = ' + str(risk))
+
+    # plot_model(source.X, source.Y, classifier, test.X, 'test')
+
+
+def main():
+    # run_active_dalc()
+    multiple_rotations_experiment(50, 5, 0, 10)
 
     print("---------------------------------------------------")
     print("                    FINISHED")

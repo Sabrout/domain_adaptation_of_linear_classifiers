@@ -69,31 +69,31 @@ def log_scale(start, end, step=0.1):
     return scale
 
 
-def generate_moon_dataset(source_size=200, target_size=200, test_size=1000):
-    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=False, random_state=None)
+def generate_moon_dataset(source_size=200, target_size=200, test_size=1000, rotation_angle=30):
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.02, random_state=None)
     adapt_labels(source_dataset)
+    shift_dataset(source_dataset)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
-    shift_dataset(source_dataset)
 
-    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=False, random_state=2)
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.02, random_state=2)
     adapt_labels(target_dataset)
     shift_dataset(target_dataset)
-    rotate_dataset(target_dataset, 30)
+    rotate_dataset(target_dataset, rotation_angle)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
-    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=False, random_state=1)
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.02, random_state=1)
     adapt_labels(test_dataset)
     shift_dataset(test_dataset)
-    rotate_dataset(test_dataset, 30)
+    rotate_dataset(test_dataset, rotation_angle)
     datasets.dump_svmlight_file(test_dataset[0], test_dataset[1], 'data\\test.svmlight', zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
     return source_dataset, target_dataset, test_dataset
 
 
-def plot_datasets(datasets):
-    plt.figure(figsize=(12, 8))
+def plot_datasets(datasets, fig_name):
+    fig = plt.figure(figsize=(12, 8))
     plt.subplots_adjust(bottom=.05, top=.9, left=.05, right=.95)
 
     plt.subplot(221, aspect='equal')
@@ -105,21 +105,22 @@ def plot_datasets(datasets):
 
     plt.subplot(222, aspect='equal')
     plt.title("Target Dataset", fontsize='small')
-    X1, Y1 = datasets[1]
+    X2, Y2 = datasets[1]
     plt.axis([-1.5, 1.5, -1.25, 1.25])
-    plt.scatter(X1[:, 0], X1[:, 1], marker='o', c=Y1,
+    plt.scatter(X2[:, 0], X2[:, 1], marker='o', c=Y2,
                 s=25, edgecolor='k')
 
     plt.subplot(223, aspect='equal')
     plt.title("Test Dataset",
               fontsize='small')
-    X2, Y2 = datasets[2]
+    X3, Y3 = datasets[2]
     plt.axis([-1.5, 1.5, -1.25, 1.25])
-    plt.scatter(X2[:, 0], X2[:, 1], marker='o', c=Y2,
+    plt.scatter(X3[:, 0], X3[:, 1], marker='o', c=Y3,
                 s=25, edgecolor='k')
 
-    plt.savefig('results/datasets_display.png')
+    plt.savefig('results/dataset_plots/'+ fig_name + 'datasets_display.png')
     plt.show()
+    # plt.close(fig)
 
 
 def plot_amazon(datasets):
@@ -288,11 +289,11 @@ def plot_model(dataset, dataset2, model):
 
 
 def main():
-    clean_tmp()
-    # datasets = generate_moon_dataset()
-    # plot_datasets(datasets)
-    # dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
-    models = extract_model()
+    # clean_tmp()
+    datasets = generate_moon_dataset(200, 200, 1000, 50)
+    # plot_datasets(datasets, 'rotation0')
+    # dalc_tune(0.5, 1.0, 0.5, 1.0, 0.5, 0.5)
+    # models = extract_model()
 
     # amazon = read_amazon()
     # plot_amazon(amazon)
