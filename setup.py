@@ -119,8 +119,8 @@ def plot_datasets(datasets, fig_name):
                 s=25, edgecolor='k')
 
     plt.savefig('results/dataset_plots/'+ fig_name + 'datasets_display.png')
-    plt.show()
-    # plt.close(fig)
+    # plt.show()
+    plt.close(fig)
 
 
 def plot_amazon(datasets):

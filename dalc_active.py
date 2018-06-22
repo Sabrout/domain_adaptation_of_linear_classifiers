@@ -41,7 +41,8 @@ def plot_model(X, y, model, X_target, fig_name):
     plt.yticks(())
     plt.title('Active PAC-Bayesian Domain Adaptation')
     plt.savefig('results/model_plots/{}.png'.format(fig_name))
-    plt.show()
+    # plt.show()
+    plt.close()
 
 
 def furthest_n(X_array, n, clf):
@@ -238,6 +239,7 @@ def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0
     dalc = Dalc(B, C)
     kernel = Kernel('rbf', G)
     classifier = dalc.learn(get_source_data(data, labels), get_target_data(data, labels), kernel)
+    classic_dalc = classifier
 
     # Capacity per iteration
     capacity = cost // (2 * iterations)
@@ -250,7 +252,7 @@ def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0
     # # Plotting
     # plot_model(source.X, source.Y, classifier, test.X, '')
 
-    return dalc, classifier, data, labels
+    return classic_dalc, classifier, data, labels
 
 
 def save_model(classifier, cost, iterations):
@@ -297,31 +299,32 @@ def multiple_rotations_experiment(cost, iterations, start_angle, end_angle):
         source, target, test = setup.read_data()
 
         setup.plot_datasets(datasets, 'rotation{}'.format(i))
-        setup.dalc_tune(0.1, 1.5, 0.1, 1.5, 0.1, 0.1)
+        # setup.dalc_tune(0.1, 0.2, 0.1, 0.2, 0.5, 0.5)
+        setup.dalc_tune(0.1, 1.2, 0.1, 1.2, 0.1, 0.1)
         model = setup.extract_model()
-        print("---------------------------------------------------")
-        print("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})".format(i))
-        print("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
-        print("Validation Risk = {}".format(model[3]))
-        print("Standard Deviation = {}".format(model[5]))
-        print("Classification Risk = {}".format(model[4]))
-        print("---------------------------------------------------")
-        # Predictions
-        predictions_dalc = model.predict(test.X)
-
-        # Calculating Risk
-        risk_dalc = model.calc_risk(test.Y, predictions=predictions_dalc)
-        print('DALC risk = ' + str(risk_dalc))
+        text_file = open("results\\optimal_models.txt", "a")
+        text_file.write("---------------------------------------------------\n")
+        text_file.write("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})\n".format(i))
+        text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
+        text_file.write("Validation Risk = {}\n".format(model[3]))
+        text_file.write("Standard Deviation = {}\n".format(model[5]))
+        text_file.write("Classification Risk = {}\n".format(model[4]))
+        text_file.write("---------------------------------------------------\n")
+        text_file.close()
 
         # Executing Algorithm
         dalc, classifier, data, labels = active_dalc(source, target, test, cost, iterations, model[0], model[1], model[2]
                                                      , 'moon_dataset_rotation{}'.format(i))
         save_data(data, labels, str(i))
 
-        # Predictions
-        predictions = classifier.predict(test.X)
+        # Predictions for Classic DALC
+        predictions_dalc = dalc.predict(test.X)
+        # Calculating Risk for Classic DALC
+        risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
 
-        # Calculating Risk
+        # Predictions for Active DALC
+        predictions = classifier.predict(test.X)
+        # Calculating Risk for Active DALC
         risk = classifier.calc_risk(test.Y, predictions=predictions)
 
         # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
@@ -368,7 +371,7 @@ def run_active_dalc():
 
 def main():
     # run_active_dalc()
-    multiple_rotations_experiment(50, 5, 0, 10)
+    multiple_rotations_experiment(50, 5, 0, 30)
 
     print("---------------------------------------------------")
     print("                    FINISHED")
