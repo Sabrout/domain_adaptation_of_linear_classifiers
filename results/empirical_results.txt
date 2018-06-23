@@ -22,3 +22,59 @@ Classification Risk = 0.031
 CLASSIC DALC
 Classification Risk = 0.0
 ===================================================
+===================================================
+MOON DATASET (ROTATION =30)
+ACTIVE DALC
+Classification Risk = 0.102
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.066
+===================================================
+===================================================
+MOON DATASET (ROTATION =40)
+ACTIVE DALC
+Classification Risk = 0.061
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.056
+===================================================
+===================================================
+MOON DATASET (ROTATION =50)
+ACTIVE DALC
+Classification Risk = 0.049
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.499
+===================================================
+===================================================
+MOON DATASET (ROTATION =60)
+ACTIVE DALC
+Classification Risk = 0.648
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.593
+===================================================
+===================================================
+MOON DATASET (ROTATION =70)
+ACTIVE DALC
+Classification Risk = 0.691
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.66
+===================================================
+===================================================
+MOON DATASET (ROTATION =80)
+ACTIVE DALC
+Classification Risk = 0.704
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.701
+===================================================
+===================================================
+MOON DATASET (ROTATION =90)
+ACTIVE DALC
+Classification Risk = 0.732
+---------------------------------------------------
+CLASSIC DALC
+Classification Risk = 0.734
+===================================================

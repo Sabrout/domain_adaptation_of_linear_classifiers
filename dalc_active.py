@@ -371,7 +371,7 @@ def run_active_dalc():
 
 def main():
     # run_active_dalc()
-    multiple_rotations_experiment(50, 5, 0, 30)
+    multiple_rotations_experiment(50, 5, 30, 100)
 
     print("---------------------------------------------------")
     print("                    FINISHED")

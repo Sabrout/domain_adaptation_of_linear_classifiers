@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6f74e0f-5b1e-413c-adfa-988974c6bb36" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dalc_active.py" beforeDir="false" afterPath="$PROJECT_DIR$/dalc_active.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/source.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/source.svmlight" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/target.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/target.svmlight" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.svmlight" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/Classification.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/Classification.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/Validation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/Validation.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/empirical_results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/empirical_results.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/optimal_models.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/optimal_models.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="dalc_active.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dalc_active.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="305" column="80" selection-start-line="305" selection-start-column="80" selection-end-line="305" selection-end-column="80" />
+            <state relative-caret-position="460">
+              <caret line="360" selection-start-line="360" selection-end-line="360" />
               <folding>
                 <element signature="e#218#241#0" expanded="true" />
                 <element signature="e#4864#5173#0" />
@@ -591,8 +592,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dalc_active.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="305" column="80" selection-start-line="305" selection-start-column="80" selection-end-line="305" selection-end-column="80" />
+        <state relative-caret-position="460">
+          <caret line="360" selection-start-line="360" selection-end-line="360" />
           <folding>
             <element signature="e#218#241#0" expanded="true" />
             <element signature="e#4864#5173#0" />
