@@ -1,0 +1,60 @@
+Classification Risk = 0.013
+Classification Risk = 0.0
+Classification Risk = 0.231
+Classification Risk = 0.268
+Classification Risk = 0.26
+Classification Risk = 0.0
+Classification Risk = 0.388
+Classification Risk = 0.233
+Classification Risk = 0.537
+Classification Risk = 0.523
+===================================================
+MOON DATASET (ITERATIONS =1)
+ACTIVE DALC
+Classification Risk = 0.013
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =2)
+ACTIVE DALC
+Classification Risk = 0.0
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =3)
+ACTIVE DALC
+Classification Risk = 0.231
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =4)
+ACTIVE DALC
+Classification Risk = 0.268
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =5)
+ACTIVE DALC
+Classification Risk = 0.26
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =6)
+ACTIVE DALC
+Classification Risk = 0.0
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =7)
+ACTIVE DALC
+Classification Risk = 0.388
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =8)
+ACTIVE DALC
+Classification Risk = 0.233
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =9)
+ACTIVE DALC
+Classification Risk = 0.537
+===================================================
+===================================================
+MOON DATASET (ITERATIONS =10)
+ACTIVE DALC
+Classification Risk = 0.523
+===================================================

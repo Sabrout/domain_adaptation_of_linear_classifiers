@@ -233,7 +233,7 @@ def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0
     # Linear Separator h_sep
     h_sep = svm.SVC(kernel='rbf', C=15.1)                # Manually Tuned Parameters
     h_sep.fit(data.X, data.Y)
-    print('Separator Score = ' + str(h_sep.score(data.X, data.Y)))
+    # print('Separator Score = ' + str(h_sep.score(data.X, data.Y)))
 
     # DALC initial model with Moon dataset's optimal parameters
     dalc = Dalc(B, C)
@@ -251,7 +251,7 @@ def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0
 
     # # Plotting
     # plot_model(source.X, source.Y, classifier, test.X, '')
-
+    print('.')
     return classic_dalc, classifier, data, labels
 
 
@@ -345,6 +345,116 @@ def multiple_rotations_experiment(cost, iterations, start_angle, end_angle):
         plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
 
 
+def multiple_cost_experiment(cost, iterations, start_cost, end_cost):
+    for i in range(start_cost, end_cost, 10):
+        # Generating Datasets
+        # datasets = setup.generate_moon_dataset(200, 200, 1000, i)
+        # Reading Datasets (Source, Target, Test)
+        source, target, test = setup.read_data()
+
+        # setup.plot_datasets(datasets, 'rotation{}'.format(i))
+        # # setup.dalc_tune(0.1, 0.2, 0.1, 0.2, 0.5, 0.5)
+        # setup.dalc_tune(0.1, 1.2, 0.1, 1.2, 0.1, 0.1)
+        # model = setup.extract_model()
+        # text_file = open("results\\optimal_models.txt", "a")
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.write("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})\n".format(i))
+        # text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
+        # text_file.write("Validation Risk = {}\n".format(model[3]))
+        # text_file.write("Standard Deviation = {}\n".format(model[5]))
+        # text_file.write("Classification Risk = {}\n".format(model[4]))
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.close()
+
+        # Executing Algorithm
+        dalc, classifier, data, labels = active_dalc(source, target, test, i, iterations
+                                                     , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
+                                                     , 'manual_experiment')
+        # save_data(data, labels, str(i))
+
+        # # Predictions for Classic DALC
+        # predictions_dalc = dalc.predict(test.X)
+        # # Calculating Risk for Classic DALC
+        # risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+
+        # Predictions for Active DALC
+        predictions = classifier.predict(test.X)
+        # Calculating Risk for Active DALC
+        risk = classifier.calc_risk(test.Y, predictions=predictions)
+
+        # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
+        # print('--------------------------------------------------')
+
+        text_file = open("results\\cost_results.txt", "a")
+        text_file.write("===================================================\n")
+        text_file.write("MOON DATASET (COST ={})\n".format(i))
+        text_file.write("ACTIVE DALC\n")
+        text_file.write("Classification Risk = {}\n".format(str(risk)))
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.write("CLASSIC DALC\n")
+        # text_file.write("Classification Risk = {}\n".format(str(risk_dalc)))
+        text_file.write("===================================================\n")
+        text_file.close()
+
+        # Plotting
+        # plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
+
+
+def multiple_iterations_experiment(cost, iterations, start_iter, end_iter):
+    for i in range(start_iter, end_iter):
+        # Generating Datasets
+        # datasets = setup.generate_moon_dataset(200, 200, 1000, i)
+        # Reading Datasets (Source, Target, Test)
+        source, target, test = setup.read_data()
+
+        # setup.plot_datasets(datasets, 'rotation{}'.format(i))
+        # # setup.dalc_tune(0.1, 0.2, 0.1, 0.2, 0.5, 0.5)
+        # setup.dalc_tune(0.1, 1.2, 0.1, 1.2, 0.1, 0.1)
+        # model = setup.extract_model()
+        # text_file = open("results\\optimal_models.txt", "a")
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.write("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})\n".format(i))
+        # text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
+        # text_file.write("Validation Risk = {}\n".format(model[3]))
+        # text_file.write("Standard Deviation = {}\n".format(model[5]))
+        # text_file.write("Classification Risk = {}\n".format(model[4]))
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.close()
+
+        # Executing Algorithm
+        dalc, classifier, data, labels = active_dalc(source, target, test, cost, i
+                                                     , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
+                                                     , 'manual_experiment')
+        # save_data(data, labels, str(i))
+
+        # # Predictions for Classic DALC
+        # predictions_dalc = dalc.predict(test.X)
+        # # Calculating Risk for Classic DALC
+        # risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+
+        # Predictions for Active DALC
+        predictions = classifier.predict(test.X)
+        # Calculating Risk for Active DALC
+        risk = classifier.calc_risk(test.Y, predictions=predictions)
+
+        # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
+        # print('--------------------------------------------------')
+
+        text_file = open("results\\iterations_results.txt", "a")
+        text_file.write("===================================================\n")
+        text_file.write("MOON DATASET (ITERATIONS ={})\n".format(i))
+        text_file.write("ACTIVE DALC\n")
+        text_file.write("Classification Risk = {}\n".format(str(risk)))
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.write("CLASSIC DALC\n")
+        # text_file.write("Classification Risk = {}\n".format(str(risk_dalc)))
+        text_file.write("===================================================\n")
+        text_file.close()
+
+        # Plotting
+        # plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
+
+
 def run_active_dalc():
     # Reading Datasets (Source, Target, Test)
     source, target, test = setup.read_data()
@@ -371,8 +481,9 @@ def run_active_dalc():
 
 def main():
     # run_active_dalc()
-    multiple_rotations_experiment(50, 5, 30, 100)
-
+    # multiple_rotations_experiment(50, 5, 30, 100)
+    # multiple_cost_experiment(50, 5, 10, 210)
+    multiple_iterations_experiment(100, 5, 1, 11)
     print("---------------------------------------------------")
     print("                    FINISHED")
     print("---------------------------------------------------")
