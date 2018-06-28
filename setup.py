@@ -70,24 +70,50 @@ def log_scale(start, end, step=0.1):
 
 
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000, rotation_angle=30):
-    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.02, random_state=None)
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.0, random_state=None)
     adapt_labels(source_dataset)
     shift_dataset(source_dataset)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
-    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.02, random_state=2)
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.0, random_state=None)
     adapt_labels(target_dataset)
     shift_dataset(target_dataset)
     rotate_dataset(target_dataset, rotation_angle)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
-    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.02, random_state=1)
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.0, random_state=1)
     adapt_labels(test_dataset)
     shift_dataset(test_dataset)
     rotate_dataset(test_dataset, rotation_angle)
     datasets.dump_svmlight_file(test_dataset[0], test_dataset[1], 'data\\test.svmlight', zero_based=True, comment=None,
+                                query_id=None, multilabel=False)
+    return source_dataset, target_dataset, test_dataset
+
+
+def generate_moon_dataset_save_all(source_size=200, target_size=200, test_size=1000, rotation_angle=30, cost=0, run=0):
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.02, random_state=None)
+    adapt_labels(source_dataset)
+    shift_dataset(source_dataset)
+    datasets.dump_svmlight_file(source_dataset[0], source_dataset[1]
+                                , 'data\custom\\source-cost{}-run{}.svmlight'.format(cost, run), zero_based=True
+                                , comment=None, query_id=None, multilabel=False)
+
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.02, random_state=2)
+    adapt_labels(target_dataset)
+    shift_dataset(target_dataset)
+    rotate_dataset(target_dataset, rotation_angle)
+    datasets.dump_svmlight_file(target_dataset[0], target_dataset[1],
+                                'data\custom\\target-cost{}-run{}.svmlight'.format(cost, run), zero_based=True
+                                , comment=None, query_id=None, multilabel=False)
+
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.02, random_state=1)
+    adapt_labels(test_dataset)
+    shift_dataset(test_dataset)
+    rotate_dataset(test_dataset, rotation_angle)
+    datasets.dump_svmlight_file(test_dataset[0], test_dataset[1],
+                                'data\custom\\test-cost{}-run{}.svmlight'.format(cost, run), zero_based=True, comment=None,
                                 query_id=None, multilabel=False)
     return source_dataset, target_dataset, test_dataset
 
@@ -119,8 +145,8 @@ def plot_datasets(datasets, fig_name):
                 s=25, edgecolor='k')
 
     plt.savefig('results/dataset_plots/'+ fig_name + 'datasets_display.png')
-    # plt.show()
-    plt.close(fig)
+    plt.show()
+    # plt.close(fig)
 
 
 def plot_amazon(datasets):
@@ -212,6 +238,13 @@ def read_data():
     return source, target, test
 
 
+def read_all_data(cost=0, run=0):
+    source = dataset.dataset_from_svmlight_file('data\custom\source-cost{}-run{}.svmlight'.format(cost, run), 2)
+    target = dataset.dataset_from_svmlight_file('data\custom\\target-cost{}-run{}.svmlight'.format(cost, run), 2)
+    test = dataset.dataset_from_svmlight_file('data\custom\\test-cost{}-run{}.svmlight'.format(cost, run), 2)
+    return source, target, test
+
+
 def read_amazon():
     source = dataset.dataset_from_svmlight_file('amazon\source.svmlight')
     target = dataset.dataset_from_svmlight_file('amazon\\target.svmlight')
@@ -290,7 +323,7 @@ def plot_model(dataset, dataset2, model):
 
 def main():
     # clean_tmp()
-    datasets = generate_moon_dataset(200, 200, 1000, 50)
+    datasets = generate_moon_dataset(200, 200, 1000, 80)
     # plot_datasets(datasets, 'rotation0')
     # dalc_tune(0.5, 1.0, 0.5, 1.0, 0.5, 0.5)
     # models = extract_model()

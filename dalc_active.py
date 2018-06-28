@@ -147,6 +147,7 @@ def print_template(data, labels, closest_samples, furthest_samples):
 def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost=50, iterations=5, fig_name=''):
 
     if cost < 1:
+        # print("COST = {}".format(cost))
         raise Exception('---- OUT OF COST ----')
 
     # Print Template
@@ -231,7 +232,7 @@ def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0
     data.Y = Y
 
     # Linear Separator h_sep
-    h_sep = svm.SVC(kernel='rbf', C=15.1)                # Manually Tuned Parameters
+    h_sep = svm.SVC(kernel='rbf', C=1.0)                # Manually Tuned Parameters
     h_sep.fit(data.X, data.Y)
     # print('Separator Score = ' + str(h_sep.score(data.X, data.Y)))
 
@@ -348,23 +349,10 @@ def multiple_rotations_experiment(cost, iterations, start_angle, end_angle):
 def multiple_cost_experiment(cost, iterations, start_cost, end_cost):
     for i in range(start_cost, end_cost, 10):
         # Generating Datasets
-        # datasets = setup.generate_moon_dataset(200, 200, 1000, i)
+        datasets = setup.generate_moon_dataset(200, 200, 1000, 50)
         # Reading Datasets (Source, Target, Test)
         source, target, test = setup.read_data()
 
-        # setup.plot_datasets(datasets, 'rotation{}'.format(i))
-        # # setup.dalc_tune(0.1, 0.2, 0.1, 0.2, 0.5, 0.5)
-        # setup.dalc_tune(0.1, 1.2, 0.1, 1.2, 0.1, 0.1)
-        # model = setup.extract_model()
-        # text_file = open("results\\optimal_models.txt", "a")
-        # text_file.write("---------------------------------------------------\n")
-        # text_file.write("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})\n".format(i))
-        # text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
-        # text_file.write("Validation Risk = {}\n".format(model[3]))
-        # text_file.write("Standard Deviation = {}\n".format(model[5]))
-        # text_file.write("Classification Risk = {}\n".format(model[4]))
-        # text_file.write("---------------------------------------------------\n")
-        # text_file.close()
 
         # Executing Algorithm
         dalc, classifier, data, labels = active_dalc(source, target, test, i, iterations
@@ -461,29 +449,93 @@ def run_active_dalc():
     # setup.plot_datasets([(source.X, source.Y), (target.X, target.Y), (test.X, test.Y)], 'tmp')
     # Executing Algorithm
     cost = 50
-    iterations = 10
+    iterations = 5
     dalc, classifier, data, labels = active_dalc(source, target, test, cost, iterations
-                                                 , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
+                                                 , 1.0, 1.0, 0.5
                                                  , 'manual_experiment')
 
     save_data(data, labels)
     # save_model(classifier, cost, iterations)
 
-    # Predictions
+    # Predictions for Classic DALC
+    predictions_dalc = dalc.predict(test.X)
+    # Calculating Risk for Classic DALC
+    risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+    print('Classic Test risk = ' + str(risk_dalc))
+    # Predictions for Active DALC
     predictions = classifier.predict(test.X)
+    # Calculating Risk for Active DALC
+    risk = classifier.calc_risk(test.Y, predictions=predictions)
 
     # Calculating Risk
-    risk = classifier.calc_risk(test.Y, predictions=predictions)
-    print('Test risk = ' + str(risk))
+    print('Active Test risk = ' + str(risk))
 
     # plot_model(source.X, source.Y, classifier, test.X, 'test')
 
 
+def custom_experiment(angle):
+    for i in range(10, 201, 10):
+        print(i)
+        result = list()
+        for j in range(0, 21):
+            datasets = setup.generate_moon_dataset_save_all(200, 200, 1000, angle, i, j)
+            # Reading Datasets (Source, Target, Test)
+            source, target, test = setup.read_all_data(i, j)
+
+            # Executing Algorithm
+            dalc, classifier, data, labels = active_dalc(source, target, test, i, 5
+                                                         , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
+                                                         , 'manual_experiment')
+            # save_data(data, labels, str(i))
+
+            # # Predictions for Classic DALC
+            # predictions_dalc = dalc.predict(test.X)
+            # # Calculating Risk for Classic DALC
+            # risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+
+            # Predictions for Active DALC
+            predictions = classifier.predict(test.X)
+            # Calculating Risk for Active DALC
+            risk = classifier.calc_risk(test.Y, predictions=predictions)
+
+            # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
+            # print('--------------------------------------------------')
+
+            #Saving Results
+            result.append(risk)
+
+        # Calculating average
+        result = np.asarray(result)
+        average = np.average(result)
+        text_file = open("results\\cost_results_custom.txt", "a")
+        text_file.write("===================================================\n")
+        text_file.write("MOON DATASET (ROTATION = {}) (COST ={})\n".format(angle, i))
+        text_file.write("ACTIVE DALC\n")
+        text_file.write("Classification Risk = {}\n".format(str(average)))
+        # text_file.write("---------------------------------------------------\n")
+        # text_file.write("CLASSIC DALC\n")
+        # text_file.write("Classification Risk = {}\n".format(str(risk_dalc)))
+        text_file.write("===================================================\n")
+        text_file.close()
+
+        text_file = open("results\\cost_results_custom_numbers_only.txt", "a")
+        text_file.write(str(average)+"\n")
+        text_file.close()
+
+
 def main():
-    # run_active_dalc()
+    datasets = setup.generate_moon_dataset(200, 200, 1000, 70)
+    run_active_dalc()
+    # custom_experiment(50)
+    # for i in range(0, 21):
+    # datasets = setup.generate_moon_dataset(200, 200, 1000, 50)
+    # datasets2 = setup.generate_moon_dataset(200, 200, 1000, 50)
+    #
+    # setup.plot_datasets(datasets, '1')
+    # setup.plot_datasets(datasets2, '2')
     # multiple_rotations_experiment(50, 5, 30, 100)
     # multiple_cost_experiment(50, 5, 10, 210)
-    multiple_iterations_experiment(100, 5, 1, 11)
+    # multiple_iterations_experiment(100, 5, 1, 11)
     print("---------------------------------------------------")
     print("                    FINISHED")
     print("---------------------------------------------------")

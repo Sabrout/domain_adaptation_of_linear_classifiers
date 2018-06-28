@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6f74e0f-5b1e-413c-adfa-988974c6bb36" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dalc_active.py" beforeDir="false" afterPath="$PROJECT_DIR$/dalc_active.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/source.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/source.svmlight" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/target.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/target.svmlight" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.svmlight" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation0datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation0datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation10datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation10datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation20datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation20datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation30datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation30datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation40datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation40datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation50datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation50datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation60datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation60datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation70datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation70datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation80datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation80datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/dataset_plots/rotation90datasets_display.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/dataset_plots/rotation90datasets_display.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation0.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation10.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation20.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation30.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation30.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation40.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation50.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation60.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation70.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation70.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation80.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation80.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation90.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_plots/rotation90.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,13 +21,20 @@
       <file leaf-file-name="dalc_active.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dalc_active.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="451" column="25" lean-forward="true" selection-start-line="451" selection-start-column="25" selection-end-line="451" selection-end-column="25" />
+            <state relative-caret-position="306">
+              <caret line="467" column="64" lean-forward="true" selection-start-line="467" selection-start-column="64" selection-end-line="467" selection-end-column="64" />
               <folding>
                 <element signature="e#218#241#0" expanded="true" />
-                <element signature="e#10502#13161#0" />
-                <element signature="e#13245#15904#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataset.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="59" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -55,8 +42,8 @@
       <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="282" column="68" selection-start-line="282" selection-start-column="68" selection-end-line="282" selection-end-column="68" />
+            <state relative-caret-position="5389">
+              <caret line="325" column="4" selection-start-line="325" selection-start-column="4" selection-end-line="325" selection-end-column="56" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -119,6 +106,8 @@
       <find>rbf</find>
       <find>print</find>
       <find>weight_file</find>
+      <find>plot_dataset</find>
+      <find>extract</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,8 +132,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="121" />
-    <option name="y" value="534" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -153,6 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,7 +162,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,15 +302,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.128125" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25678498" />
       <window_info anchor="bottom" id="TODO" order="8" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32960325" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32960325" />
-      <window_info active="true" anchor="right" id="Run" order="3" visible="true" weight="0.39895833" />
+      <window_info anchor="right" id="Run" order="3" weight="0.39895833" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" auto_hide="true" x="463" y="70" width="1026" height="983" id="Terminal" internal_type="SLIDING" order="4" type="WINDOWED" weight="0.35416666" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -524,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -583,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dalc_classify.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
@@ -597,10 +571,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kernel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2346">
+          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="59" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="282" column="68" selection-start-line="282" selection-start-column="68" selection-end-line="282" selection-end-column="68" />
+        <state relative-caret-position="5389">
+          <caret line="325" column="4" selection-start-line="325" selection-start-column="4" selection-end-line="325" selection-end-column="56" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -609,12 +597,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dalc_active.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="451" column="25" lean-forward="true" selection-start-line="451" selection-start-column="25" selection-end-line="451" selection-end-column="25" />
+        <state relative-caret-position="306">
+          <caret line="467" column="64" lean-forward="true" selection-start-line="467" selection-start-column="64" selection-end-line="467" selection-end-column="64" />
           <folding>
             <element signature="e#218#241#0" expanded="true" />
-            <element signature="e#10502#13161#0" />
-            <element signature="e#13245#15904#0" />
           </folding>
         </state>
       </provider>
