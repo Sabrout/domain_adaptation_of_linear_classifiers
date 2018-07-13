@@ -7,6 +7,29 @@
       <change beforePath="$PROJECT_DIR$/data/source.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/source.svmlight" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/target.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/target.svmlight" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.svmlight" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.svmlight" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/cost_results_custom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/cost_results_custom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/cost_results_custom_numbers_only.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/cost_results_custom_numbers_only.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/iterations_results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/iterations_results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 0 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 10 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 20 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 30 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 40 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 50 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 60 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 70 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 80 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/Target rotation of 90 degrees.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_plots/rotation90.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +44,8 @@
       <file leaf-file-name="dalc_active.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dalc_active.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="467" column="64" lean-forward="true" selection-start-line="467" selection-start-column="64" selection-end-line="467" selection-end-column="64" />
+            <state relative-caret-position="578">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#218#241#0" expanded="true" />
               </folding>
@@ -33,8 +56,8 @@
       <file leaf-file-name="dataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="59" selection-end-column="17" />
+            <state relative-caret-position="697">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -42,11 +65,8 @@
       <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5389">
-              <caret line="325" column="4" selection-start-line="325" selection-start-column="4" selection-end-line="325" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -108,7 +128,12 @@
       <find>weight_file</find>
       <find>plot_dataset</find>
       <find>extract</find>
+      <find>cache</find>
+      <find>clean_tmp</find>
     </findStrings>
+    <replaceStrings>
+      <replace>target_cache</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -126,6 +151,7 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$USER_HOME$/Desktop/bla.py" />
         <option value="$PROJECT_DIR$/dataset.py" />
+        <option value="$PROJECT_DIR$/modified_dataset.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/dalc_active.py" />
       </list>
@@ -141,7 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,6 +187,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,15 +328,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25678498" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.128125" />
       <window_info anchor="bottom" id="TODO" order="8" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32960325" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32960325" />
-      <window_info anchor="right" id="Run" order="3" weight="0.39895833" />
+      <window_info active="true" anchor="right" id="Run" order="3" visible="true" weight="0.39895833" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" auto_hide="true" x="463" y="70" width="1026" height="983" id="Terminal" internal_type="SLIDING" order="4" type="WINDOWED" weight="0.35416666" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -333,9 +359,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dalc_classify.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
@@ -367,9 +390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -424,9 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -578,27 +595,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modified_dataset.py" />
     <entry file="file://$PROJECT_DIR$/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="59" selection-end-column="17" />
+        <state relative-caret-position="697">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5389">
-          <caret line="325" column="4" selection-start-line="325" selection-start-column="4" selection-end-line="325" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dalc_active.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="467" column="64" lean-forward="true" selection-start-line="467" selection-start-column="64" selection-end-line="467" selection-end-column="64" />
+        <state relative-caret-position="578">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#218#241#0" expanded="true" />
           </folding>

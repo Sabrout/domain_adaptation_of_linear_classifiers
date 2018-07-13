@@ -70,20 +70,20 @@ def log_scale(start, end, step=0.1):
 
 
 def generate_moon_dataset(source_size=200, target_size=200, test_size=1000, rotation_angle=30):
-    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.0, random_state=None)
+    source_dataset = datasets.make_moons(n_samples=source_size, shuffle=True, noise=0.01, random_state=None)
     adapt_labels(source_dataset)
     shift_dataset(source_dataset)
     datasets.dump_svmlight_file(source_dataset[0], source_dataset[1], 'data\\source.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
-    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.0, random_state=None)
+    target_dataset = datasets.make_moons(n_samples=target_size, shuffle=True, noise=0.01, random_state=None)
     adapt_labels(target_dataset)
     shift_dataset(target_dataset)
     rotate_dataset(target_dataset, rotation_angle)
     datasets.dump_svmlight_file(target_dataset[0], target_dataset[1], 'data\\target.svmlight', zero_based=True
                                 , comment=None, query_id=None, multilabel=False)
 
-    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.0, random_state=1)
+    test_dataset = datasets.make_moons(n_samples=test_size, shuffle=True, noise=0.01, random_state=1)
     adapt_labels(test_dataset)
     shift_dataset(test_dataset)
     rotate_dataset(test_dataset, rotation_angle)

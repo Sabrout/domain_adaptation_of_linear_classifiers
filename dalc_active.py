@@ -16,6 +16,8 @@ from dalc import Dalc
 from dalc import Kernel
 import pickle
 from sklearn import datasets
+import re
+import glob
 
 
 def plot_model(X, y, model, X_target, fig_name):
@@ -39,7 +41,7 @@ def plot_model(X, y, model, X_target, fig_name):
     plt.ylim(yy.min(), yy.max())
     plt.xticks(())
     plt.yticks(())
-    plt.title('Active PAC-Bayesian Domain Adaptation')
+    plt.title('Cost = 25% - Iteration No.{}'.format(int(re.search(r'\d+', fig_name).group()) + 1))
     plt.savefig('results/model_plots/{}.png'.format(fig_name))
     # plt.show()
     plt.close()
@@ -90,40 +92,56 @@ def add_point(data, X, Y):
     np.append(data.Y, Y)
 
 
-def filtering_samples(data, labels, classifier, closest_samples, furthest_samples):
+def is_included(data, X, Y):
+    if data.X == None:
+        return False
+    for i in range(0, len(data.X)):
+        if data.X[i] == X and data.Y[i] == Y:
+            return True
+        else:
+            return False
+
+
+def filtering_samples(data, labels, target_cache, classifier, closest_samples, furthest_samples):
     # Closest Samples
     for j in range(0, len(closest_samples)):
-        if classifier.predict([data.X[j]]) * data.Y[closest_samples[j]] < 0 and data.Y[closest_samples[j]] == 1:
-            data.X = np.delete(data.X, closest_samples[j], 0)
-            data.Y = np.delete(data.Y, closest_samples[j], 0)
-            labels = np.delete(labels, closest_samples[j], 0)
-            # Updating other indices
-            for k in range(j, len(closest_samples)):
-                closest_samples[k] -= 1
-            for k in range(0, len(furthest_samples)):
-                if furthest_samples[k] >= closest_samples[j]:
-                    furthest_samples[k] -= 1
-            # Deleting the sample
-            # print("deleted {} label {}".format(closest_samples[j], data.Y[closest_samples[j]]))
-            closest_samples[j] = -len(data.X)
+        if classifier.predict([data.X[j]]) * data.Y[closest_samples[j]] < 0 and data.Y[closest_samples[j]] == 1\
+                and not is_included(target_cache, data.X[closest_samples[j]], data.Y[closest_samples[j]]) \
+                and data.Y[furthest_samples[j]] == 1:
+            # data.X = np.delete(data.X, closest_samples[j], 0)
+            # data.Y = np.delete(data.Y, closest_samples[j], 0)
+            # labels = np.delete(labels, closest_samples[j], 0)
+            # # Updating other indices
+            # for k in range(j, len(closest_samples)):
+            #     closest_samples[k] -= 1
+            # for k in range(0, len(furthest_samples)):
+            #     if furthest_samples[k] >= closest_samples[j]:
+            #         furthest_samples[k] -= 1
+            # # Deleting the sample
+            # # print("deleted {} label {}".format(closest_samples[j], data.Y[closest_samples[j]]))
+            # closest_samples[j] = -len(data.X)
+            continue
     # Clearing closest_samples
     closest_samples = closest_samples[closest_samples >= 0]
 
     # Furthest Samples
     for j in range(0, len(furthest_samples)):
-        if classifier.predict([data.X[j]]) * data.Y[furthest_samples[j]] < 0 and data.Y[furthest_samples[j]] == 1:
-            data.X = np.delete(data.X, furthest_samples[j], 0)
-            data.Y = np.delete(data.Y, furthest_samples[j], 0)
-            labels = np.delete(labels, furthest_samples[j], 0)
-            # Updating other indices
-            for k in range(j, len(furthest_samples)):
-                furthest_samples[k] -= 1
-            for k in range(0, len(closest_samples)):
-                if closest_samples[k] >= furthest_samples[j]:
-                    closest_samples[k] -= 1
-            # Deleting the sample
-            # print("deleted {} label {}".format(furthest_samples[j], data.Y[furthest_samples[j]]))
-            furthest_samples[j] = -len(data.X)
+        if classifier.predict([data.X[j]]) * data.Y[furthest_samples[j]] < 0 and data.Y[furthest_samples[j]] == 1 \
+                and not is_included(target_cache, data.X[furthest_samples[j]], data.Y[furthest_samples[j]])\
+                and data.Y[furthest_samples[j]] == 1:
+            # data.X = np.delete(data.X, furthest_samples[j], 0)
+            # data.Y = np.delete(data.Y, furthest_samples[j], 0)
+            # labels = np.delete(labels, furthest_samples[j], 0)
+            # # Updating other indices
+            # for k in range(j, len(furthest_samples)):
+            #     furthest_samples[k] -= 1
+            # for k in range(0, len(closest_samples)):
+            #     if closest_samples[k] >= furthest_samples[j]:
+            #         closest_samples[k] -= 1
+            # # Deleting the sample
+            # # print("deleted {} label {}".format(furthest_samples[j], data.Y[furthest_samples[j]]))
+            # furthest_samples[j] = -len(data.X)
+            continue
     # Clearing furthest_samples
     furthest_samples = furthest_samples[furthest_samples >= 0]
     return closest_samples, furthest_samples, labels
@@ -144,7 +162,8 @@ def print_template(data, labels, closest_samples, furthest_samples):
     get_target_data(data, labels)
 
 
-def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost=50, iterations=5, fig_name=''):
+def active_iteration(data, target, test, labels, target_cache,
+                     dalc, classifier, kernel, h_sep, cost=50, iteration_number=0, fig_name=''):
 
     if cost < 1:
         # print("COST = {}".format(cost))
@@ -163,7 +182,7 @@ def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost
         closest_samples = closest_n(data.X, capacity_close, h_sep)
         furthest_samples = furthest_n(data.X, capacity_far, h_sep)
         # Removing misclassified source samples by DALC
-        closest_samples, furthest_samples, labels = filtering_samples(data, labels, classifier
+        closest_samples, furthest_samples, labels = filtering_samples(data, labels, target_cache, classifier
                                                                       , closest_samples, furthest_samples)
 
         # Print Template
@@ -176,6 +195,10 @@ def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost
                     break_bool = True
                     break
                 cost -= 1
+                # Adding to target_cache
+                add_point(target_cache, data.X[j], data.Y[j])
+                # Keeping in Target
+                add_point(data, data.X[j], -1)
                 # for i in range(0, 10):
                 #     add_point(data, data.X[j], data.Y[j])
             data.Y[j] = 1
@@ -186,6 +209,10 @@ def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost
                     break_bool = True
                     break
                 cost -= 1
+                # Adding to target_cache
+                add_point(target_cache, data.X[j], data.Y[j])
+                # Keeping in Target
+                add_point(data, data.X[j], -1)
                 # for i in range(0, 10):
                 #     add_point(data, data.X[j], data.Y[j])
             data.Y[j] = 1
@@ -202,7 +229,8 @@ def active_iteration(data, target, labels, dalc, classifier, kernel, h_sep, cost
     # Retrain h_sep
     h_sep.fit(data.X, data.Y)
 
-    # plot_model(data.X, data.Y, classifier, target.X, 'active_dalc{}'.format(fig_name))
+    # plot_model(get_source_data(data, labels).X, get_source_data(data, labels).Y, classifier, test.X,
+    #            'ItrByItr/Iteration{}'.format(iteration_number))
 
     return data, labels, classifier, h_sep, cost
 
@@ -244,14 +272,19 @@ def active_dalc(source, target, test, cost=50, iterations=5, B=1.0, C=1.0, G=1.0
 
     # Capacity per iteration
     capacity = cost // (2 * iterations)
+
+    # target_cache for previously selected points in Target
+    target_cache = dataset.Dataset()
     # Iteration Loop
     for i in range(0, iterations):
         data, labels, classifier, h_sep, cost = \
-            active_iteration(data, target
-                             , labels, dalc, classifier, kernel, h_sep, capacity, iterations, fig_name)
+            active_iteration(data, target, test
+                             , labels, target_cache, dalc, classifier, kernel, h_sep, capacity,
+                             i, fig_name)
+        plot_model(source.X, source.Y, classifier, test.X, 'ItrByItr/Iteration{}'.format(i))
 
     # # Plotting
-    # plot_model(source.X, source.Y, classifier, test.X, '')
+    # plot_model(source.X, source.Y, classifier, test.X, fig_name)
     print('.')
     return classic_dalc, classifier, data, labels
 
@@ -346,101 +379,124 @@ def multiple_rotations_experiment(cost, iterations, start_angle, end_angle):
         plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
 
 
-def multiple_cost_experiment(cost, iterations, start_cost, end_cost):
+def multiple_cost_experiment(start_cost, end_cost):
     for i in range(start_cost, end_cost, 10):
-        # Generating Datasets
-        datasets = setup.generate_moon_dataset(200, 200, 1000, 50)
-        # Reading Datasets (Source, Target, Test)
-        source, target, test = setup.read_data()
+        result = list()
+        classic_result = list()
+        for j in range(0, 6):
+            datasets = setup.generate_moon_dataset_save_all(200, 200, 1000, 90, i, j)
+            # Reading Datasets (Source, Target, Test)
+            source, target, test = setup.read_all_data(i, j)
 
+            # Executing Algorithm
+            dalc, classifier, data, labels = active_dalc(source, target, test, i, 5
+                                                         , 1.0, 1.0, 0.5
+                                                         , str(70))
+            # save_data(data, labels, str(i))
 
-        # Executing Algorithm
-        dalc, classifier, data, labels = active_dalc(source, target, test, i, iterations
-                                                     , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
-                                                     , 'manual_experiment')
-        # save_data(data, labels, str(i))
+            # Predictions for Classic DALC
+            predictions_dalc = dalc.predict(test.X)
+            # Calculating Risk for Classic DALC
+            risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
 
-        # # Predictions for Classic DALC
-        # predictions_dalc = dalc.predict(test.X)
-        # # Calculating Risk for Classic DALC
-        # risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+            # Predictions for Active DALC
+            predictions = classifier.predict(test.X)
+            # Calculating Risk for Active DALC
+            risk = classifier.calc_risk(test.Y, predictions=predictions)
 
-        # Predictions for Active DALC
-        predictions = classifier.predict(test.X)
-        # Calculating Risk for Active DALC
-        risk = classifier.calc_risk(test.Y, predictions=predictions)
+            # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
+            # print('--------------------------------------------------')
 
-        # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
-        # print('--------------------------------------------------')
+            # Saving Results
+            result.append(risk)
+            classic_result.append(risk_dalc)
 
-        text_file = open("results\\cost_results.txt", "a")
+        # Calculating average
+        result = np.asarray(result)
+        average = np.average(result)
+        classic_result = np.asarray(classic_result)
+        classic_average = np.average(classic_result)
+        text_file = open("results\\cost_results_custom.txt", "a")
         text_file.write("===================================================\n")
-        text_file.write("MOON DATASET (COST ={})\n".format(i))
+        text_file.write("MOON DATASET (ROTATION = {}) (COST ={})\n".format(70, i))
         text_file.write("ACTIVE DALC\n")
-        text_file.write("Classification Risk = {}\n".format(str(risk)))
+        text_file.write("Classification Risk = {}\n".format(str(average)))
         # text_file.write("---------------------------------------------------\n")
         # text_file.write("CLASSIC DALC\n")
         # text_file.write("Classification Risk = {}\n".format(str(risk_dalc)))
         text_file.write("===================================================\n")
         text_file.close()
 
-        # Plotting
-        # plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
+        text_file = open("results\\cost_results_custom_numbers_only.txt", "a")
+        text_file.write(str(average) + "\n")
+        text_file.close()
+
+        text_file = open("results\\classic.txt", "a")
+        text_file.write(str(classic_average) + "\n")
+        text_file.close()
+
+        print("Classic DALC : {}".format(str(classic_average)))
+        print("Active DALC : {}".format(str(average)))
 
 
-def multiple_iterations_experiment(cost, iterations, start_iter, end_iter):
+def multiple_iterations_experiment(start_iter, end_iter):
     for i in range(start_iter, end_iter):
-        # Generating Datasets
-        # datasets = setup.generate_moon_dataset(200, 200, 1000, i)
-        # Reading Datasets (Source, Target, Test)
-        source, target, test = setup.read_data()
+        result = list()
+        classic_result = list()
+        for j in range(0, 11):
+            datasets = setup.generate_moon_dataset_save_all(200, 200, 1000, 70, 50, j)
+            # Reading Datasets (Source, Target, Test)
+            source, target, test = setup.read_all_data(50, j)
 
-        # setup.plot_datasets(datasets, 'rotation{}'.format(i))
-        # # setup.dalc_tune(0.1, 0.2, 0.1, 0.2, 0.5, 0.5)
-        # setup.dalc_tune(0.1, 1.2, 0.1, 1.2, 0.1, 0.1)
-        # model = setup.extract_model()
-        # text_file = open("results\\optimal_models.txt", "a")
-        # text_file.write("---------------------------------------------------\n")
-        # text_file.write("OPTIMAL MODEL FOR MOON DATASET (ROTATION = {})\n".format(i))
-        # text_file.write("CASE : B = {}, C = {}, Gamma = {}\n".format(model[0], model[1], model[2]))
-        # text_file.write("Validation Risk = {}\n".format(model[3]))
-        # text_file.write("Standard Deviation = {}\n".format(model[5]))
-        # text_file.write("Classification Risk = {}\n".format(model[4]))
-        # text_file.write("---------------------------------------------------\n")
-        # text_file.close()
+            # Executing Algorithm
+            dalc, classifier, data, labels = active_dalc(source, target, test, 50, i
+                                                         , 1.0, 1.0, 0.5
+                                                         , str(70))
+            # save_data(data, labels, str(i))
 
-        # Executing Algorithm
-        dalc, classifier, data, labels = active_dalc(source, target, test, cost, i
-                                                     , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
-                                                     , 'manual_experiment')
-        # save_data(data, labels, str(i))
+            # Predictions for Classic DALC
+            predictions_dalc = dalc.predict(test.X)
+            # Calculating Risk for Classic DALC
+            risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
 
-        # # Predictions for Classic DALC
-        # predictions_dalc = dalc.predict(test.X)
-        # # Calculating Risk for Classic DALC
-        # risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+            # Predictions for Active DALC
+            predictions = classifier.predict(test.X)
+            # Calculating Risk for Active DALC
+            risk = classifier.calc_risk(test.Y, predictions=predictions)
 
-        # Predictions for Active DALC
-        predictions = classifier.predict(test.X)
-        # Calculating Risk for Active DALC
-        risk = classifier.calc_risk(test.Y, predictions=predictions)
+            # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
+            # print('--------------------------------------------------')
 
-        # print('ROTATION({}) >> Test risk = '.format(i) + str(risk))
-        # print('--------------------------------------------------')
+            # Saving Results
+            result.append(risk)
+            classic_result.append(risk_dalc)
 
+        # Calculating average
+        result = np.asarray(result)
+        average = np.average(result)
+        classic_result = np.asarray(classic_result)
+        classic_average = np.average(classic_result)
         text_file = open("results\\iterations_results.txt", "a")
         text_file.write("===================================================\n")
-        text_file.write("MOON DATASET (ITERATIONS ={})\n".format(i))
+        text_file.write("MOON DATASET (ROTATION = {}) (COST ={})\n".format(70, 50))
         text_file.write("ACTIVE DALC\n")
-        text_file.write("Classification Risk = {}\n".format(str(risk)))
+        text_file.write("Classification Risk = {}\n".format(str(average)))
         # text_file.write("---------------------------------------------------\n")
         # text_file.write("CLASSIC DALC\n")
         # text_file.write("Classification Risk = {}\n".format(str(risk_dalc)))
         text_file.write("===================================================\n")
         text_file.close()
 
-        # Plotting
-        # plot_model(source.X, source.Y, classifier, test.X, 'rotation{}'.format(i))
+        text_file = open("results\\iterations_results_numbers_only.txt", "a")
+        text_file.write(str(average) + "\n")
+        text_file.close()
+
+        text_file = open("results\\classic.txt", "a")
+        text_file.write(str(classic_average) + "\n")
+        text_file.close()
+
+        print("Classic DALC : {}".format(str(classic_average)))
+        print("Active DALC : {}".format(str(average)))
 
 
 def run_active_dalc():
@@ -474,24 +530,26 @@ def run_active_dalc():
 
 
 def custom_experiment(angle):
-    for i in range(10, 201, 10):
-        print(i)
+    # for i in range(10, 201, 10):
+    #     print(i)
+        i = 50
         result = list()
-        for j in range(0, 21):
+        classic_result = list()
+        for j in range(0, 11):
             datasets = setup.generate_moon_dataset_save_all(200, 200, 1000, angle, i, j)
             # Reading Datasets (Source, Target, Test)
             source, target, test = setup.read_all_data(i, j)
 
             # Executing Algorithm
             dalc, classifier, data, labels = active_dalc(source, target, test, i, 5
-                                                         , 0.6309573650360107, 0.1258925348520279, 1.2559431791305542
-                                                         , 'manual_experiment')
+                                                         , 1.0, 1.0, 0.5
+                                                         , str(angle))
             # save_data(data, labels, str(i))
 
-            # # Predictions for Classic DALC
-            # predictions_dalc = dalc.predict(test.X)
-            # # Calculating Risk for Classic DALC
-            # risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
+            # Predictions for Classic DALC
+            predictions_dalc = dalc.predict(test.X)
+            # Calculating Risk for Classic DALC
+            risk_dalc = dalc.calc_risk(test.Y, predictions=predictions_dalc)
 
             # Predictions for Active DALC
             predictions = classifier.predict(test.X)
@@ -503,10 +561,13 @@ def custom_experiment(angle):
 
             #Saving Results
             result.append(risk)
+            classic_result.append(risk_dalc)
 
         # Calculating average
         result = np.asarray(result)
         average = np.average(result)
+        classic_result = np.asarray(classic_result)
+        classic_average = np.average(classic_result)
         text_file = open("results\\cost_results_custom.txt", "a")
         text_file.write("===================================================\n")
         text_file.write("MOON DATASET (ROTATION = {}) (COST ={})\n".format(angle, i))
@@ -522,11 +583,18 @@ def custom_experiment(angle):
         text_file.write(str(average)+"\n")
         text_file.close()
 
+        text_file = open("results\\classic.txt", "a")
+        text_file.write(str(classic_average) + "\n")
+        text_file.close()
+
+        print("Classic DALC : {}".format(str(classic_average)))
+        print("Active DALC : {}".format(str(average)))
+
 
 def main():
-    datasets = setup.generate_moon_dataset(200, 200, 1000, 70)
+    datasets = setup.generate_moon_dataset(200, 200, 1000, 80)
     run_active_dalc()
-    # custom_experiment(50)
+    # custom_experiment(90)
     # for i in range(0, 21):
     # datasets = setup.generate_moon_dataset(200, 200, 1000, 50)
     # datasets2 = setup.generate_moon_dataset(200, 200, 1000, 50)
@@ -534,8 +602,8 @@ def main():
     # setup.plot_datasets(datasets, '1')
     # setup.plot_datasets(datasets2, '2')
     # multiple_rotations_experiment(50, 5, 30, 100)
-    # multiple_cost_experiment(50, 5, 10, 210)
-    # multiple_iterations_experiment(100, 5, 1, 11)
+    # multiple_cost_experiment(190, 210)
+    # multiple_iterations_experiment(1, 11)
     print("---------------------------------------------------")
     print("                    FINISHED")
     print("---------------------------------------------------")
